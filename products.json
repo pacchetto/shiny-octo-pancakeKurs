@@ -1,0 +1,47 @@
+[
+    {
+      "id": 1,
+      "title": "Shark - Men's cabretta white golf glove",
+      "price": 19.00,
+      "oldPrice": null,
+      "image": "Assets/styles/Images/product-glove.webp",
+      "rating": 5,
+      "badges": ["hot"]
+    },
+    {
+      "id": 2,
+      "title": "Greg Norman - Men's Shark Logo Golf Polo Shirt",
+      "price": 24.99,
+      "oldPrice": 49.99,
+      "image": "Assets/styles/Images/product-shirt.webp",
+      "rating": 4,
+      "badges": ["hot", "sale"]
+    },
+    {
+      "id": 3,
+      "title": "G/FORE - Mens Left Glove Snow 2023",
+      "price": 30.00,
+      "oldPrice": null,
+      "image": "Assets/styles/Images/product-glove-2.webp",
+      "rating": 5,
+      "badges": ["hot"]
+    },
+    {
+      "id": 4,
+      "title": "Utility Rover-R Double Strap Bag All Black",
+      "price": 209.99,
+      "oldPrice": null,
+      "image": "Assets/styles/Images/product-bag.webp",
+      "rating": 4,
+      "badges": ["hot"]
+    },
+    {
+      "id": 5,
+      "title": "G/FORE Men's G.112 P.U. Leather Golf Shoes",
+      "price": 159.99,
+      "oldPrice": null,
+      "image": "Assets/styles/Images/product-shoes.webp",
+      "rating": 4,
+      "badges": ["hot", "sale"]
+    }
+  ]

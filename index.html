@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover premium golf equipment, apparel, and accessories at 3legant. Shop the latest collections for your best game.">
+    <title>Golf Store - 3legant</title>
+    
+    <link rel="icon" type="image/png" href="Assets/styles/Images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="Assets/styles/style.css">
+</head>
+<body>
+    <section class="header-section">
+        <div id="discountPropose" class="discount-propose">
+            <div class="ticket-icon"></div>
+            <span key="discount_text">30% off storewide — Limited time! </span>
+            <a href="shop.html">
+                <span key="btn_shop_now">Shop Now</span>
+            </a>
+            <i class="fa-solid fa-arrow-right d-none"></i>
+            <i id="btnX" class="fa-solid fa-x move-right btnX-marg"></i>
+        </div>
+        <header class="header d-flex">
+            <div class="content-wrap d-flex w-full justyfy-between">
+                <div class="header-left">
+                    <div id="burgerMenu" class="burger-menu">
+                        <i id="openIcon" class="fa-solid fa-bars"></i>
+                        <i id="closeIcon" class="fa-solid fa-xmark d-none"></i>
+                    </div>
+                    <div class="logo">
+                        <a href="index.html" class="title-color">3legant.</a>
+                    </div>
+                </div>    
+                <nav id="headerNav" class="header-nav">
+                    <ul class="main-menu">
+                        <li><a href="index.html" style="font-weight: 600;" key="nav_home">Home</a></li>
+                        
+                        <li class="dropdown">
+                            <a href="shop.html"><span key="nav_shop">Shop</span> <i class="fa-solid fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="shop.html" key="nav_all">All Products</a></li>
+                                <li><a href="shop.html" key="cat_clothing">T-Shirts</a></li>
+                                <li><a href="shop.html" key="cat_clubs">Clubs</a></li>
+                                <li><a href="shop.html" key="cat_acc">Accessories</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="contact.html" key="nav_contact">Contact Us</a></li>
+
+                        <li class="lang-switch-li">
+                            <span class="lang-btn active" onclick="changeLanguage('en')">EN</span>
+                            <span class="divider">|</span>
+                            <span class="lang-btn" onclick="changeLanguage('uk')">UA</span>
+                        </li>
+
+                        <li class="theme-toggle" onclick="toggleTheme()">
+                            <i class="fa-regular fa-moon" id="themeIcon"></i>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="bag-with-num">
+                    <div class="search-icon">
+                        <a href="#" class="search-btn"></a>
+                    </div>
+                    <div class="accaunt-icon desktop-only" title="Sign In">
+                        <a href="#" class="uppercase-btn"></a>
+                    </div>
+                    <div class="bag-icon" title="Bag">
+                        <a href="#"></a>
+                    </div>
+                    <div class="num-icon" title="Number of items">
+                        <a href="#"></a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <div class="hero-section">
+            <div class="hero-content">
+                <h1 key="hero_title">More than<br>just a game.<br>It's a lifestyle.</h1>
+                <p key="hero_desc">Whether you're just starting out, have played your whole life or you're a Tour pro, your swing is like a fingerprint.</p>
+                <a href="shop.html" class="shopping-btn" key="btn_shop_now">Shopping Now</a>
+            </div>
+            <div class="hero-image"></div>
+        </div>
+    </section>
+
+    <section class="products-section">
+        <div class="container">
+            <h2 class="section-title" key="sec_featured">Featured</h2>
+            
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper" id="productsGrid">
+                    </div>
+                
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="categories-section">
+        <div class="container">
+            <h2 class="section-title" key="sec_categories">Shop by Categories</h2>
+            <div class="categories-grid">
+                <a href="shop.html" class="category-card">
+                    <img src="Assets/styles/Images/cat-clubs.webp" alt="Golf Clubs">
+                    <h3 key="cat_clubs">Golf Clubs</h3>
+                </a>
+                <a href="shop.html" class="category-card">
+                    <img src="Assets/styles/Images/cat-balls.webp" alt="Golf Balls">
+                    <h3 key="cat_balls">Golf Balls</h3>
+                </a>
+                <a href="shop.html" class="category-card">
+                    <img src="Assets/styles/Images/cat-bags.webp" alt="Golf Bags">
+                    <h3 key="cat_bags">Golf Bags</h3>
+                </a>
+                <a href="shop.html" class="category-card">
+                    <img src="Assets/styles/Images/product-shirt.webp" alt="Clothing & Rainwear">
+                    <h3 key="cat_clothing">Clothing & Rainwear</h3>
+                </a>
+                <a href="shop.html" class="category-card">
+                    <img src="Assets/styles/Images/cat-footwear.webp" alt="Footwear">
+                    <h3 key="cat_footwear">Footwear</h3>
+                </a>
+                <a href="shop.html" class="category-card">
+                    <img src="Assets/styles/Images/product-glove-2.webp" alt="Accessories">
+                    <h3 key="cat_acc">Accessories</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="offer-section">
+        <div class="offer-image"></div>
+        <div class="offer-content">
+            <span class="offer-tag" key="offer_tag">LIMITED EDITION</span>
+            <h2 class="offer-title" key="offer_title">Hurry up! 30% OFF</h2>
+            <p class="offer-description" key="offer_desc">Find clubs that are right for your game</p>
+            <div class="countdown-timer">
+                <div class="timer-box"><span id="days" class="timer-value">02</span><span class="timer-label">Days</span></div>
+                <div class="timer-box"><span id="hours" class="timer-value">12</span><span class="timer-label">Hours</span></div>
+                <div class="timer-box"><span id="minutes" class="timer-value">45</span><span class="timer-label">Mins</span></div>
+                <div class="timer-box"><span id="seconds" class="timer-value">05</span><span class="timer-label">Secs</span></div>
+            </div>
+            <a href="shop.html" class="shopping-btn" key="btn_shop_now">Shop Now</a>
+        </div>
+    </section>
+    
+    <section class="collection-section">
+        <div class="container">
+            <h2 class="section-title" key="sec_collection">Shop Collection</h2>
+            <div class="collection-grid">
+                <div class="collection-card large-card juniors">
+                    <h3>Juniors Set</h3>
+                    <a href="shop.html">Collections &rarr;</a>
+                </div>
+                <div class="collection-card small-card mens">
+                    <h3>Men's Set</h3>
+                    <a href="shop.html">Collections &rarr;</a>
+                </div>
+                <div class="collection-card small-card womens">
+                    <h3>Women's Set</h3>
+                    <a href="shop.html">Collections &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="articles-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" key="sec_articles">Latest Articles</h2>
+                <a href="blog-post.html" class="view-more-link">View More &rarr;</a>
+            </div>
+            <div class="articles-grid" id="articlesGrid">
+                <div class="article-card">
+                    <a href="blog-post.html"><img src="Assets/styles/Images/article-1.webp" alt="Article 1"></a>
+                    <h3>Air Jordan x Travis Scott Event</h3>
+                    <a href="blog-post.html">Read More &rarr;</a>
+                </div>
+                <div class="article-card">
+                    <a href="blog-post.html"><img src="Assets/styles/Images/article-2.webp" alt="Article 2"></a>
+                    <h3>The timeless classics on the green</h3>
+                    <a href="blog-post.html">Read More &rarr;</a>
+                </div>
+                <div class="article-card">
+                    <a href="blog-post.html"><img src="Assets/styles/Images/article-3.webp" alt="Article 3"></a>
+                    <h3>The 2023 Ryder Cup</h3>
+                    <a href="blog-post.html">Read More &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="background-images">
+                <img src="Assets/styles/Images/glows-back.webp" alt="Golf glove">
+                <img src="Assets/styles/Images/golf-club-back.webp" alt="Golf club">
+            </div>
+            <div class="newsletter-content">
+                <h2 key="newsletter_title">Join Our Newsletter</h2>
+                <p key="newsletter_desc">Sign up for deals, new products and promotions</p>
+            </div>
+            <form class="newsletter-form">
+                <i class="fa-regular fa-envelope"></i>
+                <input type="email" placeholder="Email address" required>
+                <button type="submit" key="btn_signup">Signup</button>
+            </form>
+        </div>
+    </section>
+    
+    <section class="instagram-section">
+        <div class="container">
+            <div class="instagram-posts">
+                <span class="newsfeed-tag">NEWSFEED</span>
+                <h2 class="section-title">Instagram</h2>
+                <p>Follow us on social media for more discount & promotions</p>
+                <a href="#" class="instagram-handle">@3legant_official</a>
+            </div>
+            <div class="instagram-grid">
+                <img src="Assets/styles/Images/insta-1.webp" alt="Instagram Post 1">
+                <img src="Assets/styles/Images/insta-2.webp" alt="Instagram Post 2">
+                <img src="Assets/styles/Images/insta-3.webp" alt="Instagram Post 3">
+                <img src="Assets/styles/Images/insta-4.webp" alt="Instagram Post 4">
+                <img src="Assets/styles/Images/insta-5.webp" alt="Instagram Post 5">
+                <img src="Assets/styles/Images/insta-6.webp" alt="Instagram Post 6">
+            </div>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <div class="container footer-main">
+            <div class="footer-col about">
+                <a href="#" class="footer-logo">3legant.</a>
+                <p key="footer_desc">More than just a game. It's a lifestyle.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+    
+            <div class="footer-col links footer-accordion">
+                <h4 class="accordion-toggle">Page <i class="fa-solid fa-chevron-up"></i></h4>
+                <ul class="accordion-content">
+                    <li><a href="index.html" key="nav_home">Home</a></li>
+                    <li><a href="shop.html" key="nav_shop">Shop</a></li>
+                    <li><a href="contact.html" key="nav_contact">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col links footer-accordion">
+                <h4 class="accordion-toggle">Info <i class="fa-solid fa-chevron-up"></i></h4>
+                <ul class="accordion-content">
+                    <li><a href="404.html">Shipping Policy</a></li>
+                    <li><a href="#">Return & Refund</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-col office">
+                <h4>Office</h4>
+                <p>43111 Hai Trieu street, District 1, HCMC Vietnam</p>
+                <p>84-756-3237</p>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>Copyright &copy; 2024 3legant. All rights reserved</p>
+            <div class="policy-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+            </div>
+            <div class="payment-icons">
+                <img src="Assets/styles/Images/visa.webp" alt="Visa">
+                <img src="Assets/styles/Images/american_express.webp" alt="American Express">
+                <img src="Assets/styles/Images/mastercard.webp" alt="Mastercard">
+                <img src="Assets/styles/Images/stripe.webp" alt="Stripe">
+                <img src="Assets/styles/Images/paypal.webp" alt="Paypal">
+                <img src="Assets/styles/Images/apple_pay.webp" alt="Apple Pay">
+            </div>
+        </div>
+    </footer>
+
+    <div id="loginModal" class="modal-overlay">
+        <section class="modal-content" aria-labelledby="modalTitle">
+            <div class="modal-header">
+                <h2 id="modalTitle" key="modal_title">Sign In</h2>
+                <span class="close-modal" aria-label="Close modal">&times;</span>
+            </div>
+            <form class="login-form">
+                <div class="form-group">
+                    <input type="email" placeholder="Email address" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Password" required>
+                    <button type="button" class="toggle-password" style="background:none; border:none; position:absolute; right:0; top:12px; cursor:pointer;">
+                        <i class="fa-regular fa-eye show-pass-icon"></i>
+                   </button>
+                </div>
+                <div class="form-footer">
+                    <label class="remember-me">
+                        <input type="checkbox"> Remember me
+                    </label>
+                    <a href="#" class="forgot-pass">Forgot password?</a>
+                </div>
+                <button type="submit" class="login-btn" key="btn_signin">Sign In</button>
+            </form>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/easytimer.js@4.5.4/dist/easytimer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="Assets/script/script.js"></script>
+</body>
+</html>

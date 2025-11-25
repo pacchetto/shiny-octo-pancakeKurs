@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Product details for Golf T-Shirt. High quality material.">
+    <title>Product Details - 3legant</title>
+    <link rel="icon" type="image/png" href="Assets/styles/Images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="Assets/styles/style.css">
+</head>
+<body>
+    <section class="header-section">
+        <div id="discountPropose" class="discount-propose">
+            <div class="ticket-icon"></div>
+            <span key="discount_text">30% off storewide — Limited time! </span>
+            <a href="shop.html">
+                <span   ">Shop Now</span>
+            </a>
+            <i class="fa-solid fa-arrow-right d-none"></i>
+            <i id="btnX" class="fa-solid fa-x move-right btnX-marg"></i>
+        </div>
+        <header class="header d-flex">
+            <div class="content-wrap d-flex w-full justyfy-between">
+                <div class="header-left">
+                    <div id="burgerMenu" class="burger-menu">
+                        <i id="openIcon" class="fa-solid fa-bars"></i>
+                        <i id="closeIcon" class="fa-solid fa-xmark d-none"></i>
+                    </div>
+                    <div class="logo">
+                        <a href="index.html" class="title-color">3legant.</a>
+                    </div>
+                </div>    
+                <nav id="headerNav" class="header-nav">
+                    <ul class="main-menu">
+                        <li>
+                            <a href="index.html" style="font-weight: 600;" key="nav_home">Home</a>
+                        </li>
+                        
+                        <li class="dropdown">
+                            <a href="shop.html"><span key="nav_shop">Shop</span> <i class="fa-solid fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="shop.html" key="nav_all">All Products</a></li>
+                                <li><a href="shop.html" key="cat_clothing">T-Shirts</a></li>
+                                <li><a href="shop.html" key="cat_clubs">Clubs</a></li>
+                                <li><a href="shop.html" key="cat_acc">Accessories</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="contact.html" key="nav_contact">Contact Us</a>
+                        </li>
+
+                        <li class="lang-switch-li">
+                            <span class="lang-btn active" onclick="changeLanguage('en')">EN</span>
+                            <span class="divider">|</span>
+                            <span class="lang-btn" onclick="changeLanguage('uk')">UA</span>
+                        </li>
+                        <li class="theme-toggle" onclick="toggleTheme()">
+                            <i class="fa-regular fa-moon" id="themeIcon"></i>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="bag-with-num">
+                    <div class="search-icon">
+                        <a href="#" class="search-btn"></a>
+                    </div>
+                    <div class="accaunt-icon desktop-only" title="Sign In">
+                        <a href="#" class="uppercase-btn"></a>
+                    </div>
+                    <div class="bag-icon" title="Bag">
+                        <a href="#"></a>
+                    </div>
+                    <div class="num-icon" title="Number of items">
+                        <a href="#"></a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+    <div class="container" style="padding: 20px 20px 0;">
+        <div class="breadcrumbs">
+            <a href="index.html">Home</a> 
+            <i class="fa-solid fa-chevron-right"></i> 
+            <a href="shop.html">Shop</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>Men's Golf T-Shirt</span>
+        </div>
+    </div>
+
+    <section class="product-details-section">
+        <div class="container product-details-container">
+            <div class="product-gallery">
+                <div class="main-image">
+                    <img id="mainImg" src="Assets/styles/Images/product-shirt.webp" alt="Main Product">
+                    <span class="badge hot" style="top: 20px; left: 20px;">HOT</span>
+                </div>
+                <div class="thumbnails">
+                    <img src="Assets/styles/Images/product-shirt.webp" onclick="changeImage(this)" class="active-thumb">
+                    <img src="Assets/styles/Images/product-glove.webp" onclick="changeImage(this)">
+                    <img src="Assets/styles/Images/product-bag.webp" onclick="changeImage(this)">
+                </div>
+            </div>
+
+            <div class="product-info-block">
+                <div class="product-rating">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    <span style="color: var(--secondary-text); font-size: 0.8rem; margin-left: 8px;">(11 Reviews)</span>
+                </div>
+                <h1 class="product-main-title">Greg Norman - Men's Shark Logo Golf Polo Shirt</h1>
+                <div class="product-price-large">
+                    $24.99 <span class="old-price">$49.99</span>
+                </div>
+                <p class="product-description">
+                    Experience the ultimate comfort on the green with this premium polo shirt. 
+                    Designed for flexibility and breathability, allowing you to swing with ease.
+                </p>
+
+                <div class="product-timer">
+                    <p>Offer expires in:</p>
+                    <div class="countdown-timer" style="justify-content: flex-start; margin-bottom: 20px;">
+                        <div class="timer-box"><span class="timer-value">02</span><span class="timer-label">Days</span></div>
+                        <div class="timer-box"><span class="timer-value">12</span><span class="timer-label">Hours</span></div>
+                        <div class="timer-box"><span class="timer-value">45</span><span class="timer-label">Mins</span></div>
+                    </div>
+                </div>
+
+                <div class="product-actions">
+                    <div class="quantity-selector">
+                        <button class="qty-btn minus">-</button>
+                        <input type="number" value="1" min="1" class="qty-input">
+                        <button class="qty-btn plus">+</button>
+                    </div>
+                    <button class="add-to-cart-btn-large">Add to Cart</button>
+                </div>
+                
+                <div class="product-meta">
+                    <p><strong>SKU:</strong> 1117</p>
+                    <p><strong>Category:</strong> T-Shirts, Men</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="product-tabs-section">
+        <div class="container">
+            <div class="tabs-header">
+                <button class="tab-btn active" onclick="openTab(event, 'desc')">Description</button>
+                <button class="tab-btn" onclick="openTab(event, 'reviews')">Reviews</button>
+            </div>
+            <div class="tab-content active" id="desc">
+                <h3>Product Information</h3>
+                <p>Here you can add more detailed information about the product features, materials, and care instructions.</p>
+            </div>
+            <div class="tab-content" id="reviews">
+                <h3>Customer Reviews</h3>
+                <p>No reviews yet.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+       <div class="container footer-main"><p style="text-align: center; color: white;">Footer Placeholder</p></div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="Assets/script/script.js"></script>
+    
+    <script>
+        // Change Main Image
+        function changeImage(element) {
+            document.getElementById('mainImg').src = element.src;
+            document.querySelectorAll('.thumbnails img').forEach(img => img.classList.remove('active-thumb'));
+            element.classList.add('active-thumb');
+        }
+
+        // Tabs
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+</html>
