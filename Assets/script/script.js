@@ -1,6 +1,108 @@
 document.addEventListener('DOMContentLoaded', function() {
     
     // =========================================
+    // 0. LANGUAGE DATA & INIT
+    // =========================================
+    const translations = {
+        'en': {
+            'discount_text': '30% off storewide — Limited time!',
+            'nav_home': 'Home',
+            'nav_shop': 'Shop',
+            'nav_product': 'Product',
+            'nav_all': 'All Products',
+            'nav_contact': 'Contact Us',
+            'hero_title': 'More than<br>just a game.<br>It\'s a lifestyle.',
+            'hero_desc': "Whether you're just starting out, have played your whole life or you're a Tour pro, your swing is like a fingerprint.",
+            'btn_shop_now': 'Shopping Now',
+            'sec_featured': 'Featured',
+            'sec_categories': 'Shop by Categories',
+            'sec_collection': 'Shop Collection',
+            'sec_articles': 'Latest Articles',
+            'offer_tag': 'LIMITED EDITION',
+            'offer_title': 'Hurry up! 30% OFF',
+            'offer_desc': 'Find clubs that are right for your game',
+            'newsletter_title': 'Join Our Newsletter',
+            'newsletter_desc': 'Sign up for deals, new products and promotions',
+            'btn_signup': 'Signup',
+            'footer_desc': "More than just a game. It's a lifestyle.",
+            'cat_clubs': 'Golf Clubs',
+            'cat_balls': 'Golf Balls',
+            'cat_bags': 'Golf Bags',
+            'cat_clothing': 'Clothing & Rainwear',
+            'cat_footwear': 'Footwear',
+            'cat_acc': 'Accessories',
+            'btn_add_cart': 'Add to cart',
+            'modal_title': 'Sign In',
+            'btn_signin': 'Sign In',
+            'related_products': 'You might also like',
+            'delivery_returns': 'Delivery & Returns',
+            'delivery_info': 'Free delivery for orders over $100. Returns within 30 days.',
+            'material_care': 'Material & Care',
+            'material_care_info': '100% Cotton. Machine wash cold, do not bleach, tumble dry low.'
+        },
+        'uk': {
+            'discount_text': 'Знижка 30% на все — Тільки зараз!',
+            'nav_home': 'Головна',
+            'nav_shop': 'Магазин',
+            'nav_product': 'Товар',
+            'nav_all': 'Всі товари',
+            'nav_contact': 'Контакти',
+            'hero_title': 'Більше ніж<br>просто гра.<br>Це стиль життя.',
+            'hero_desc': 'Незалежно від того, чи ви тільки починаєте, граєте все життя або ви профі — ваш удар унікальний, як відбиток пальця.',
+            'btn_shop_now': 'Купити зараз',
+            'sec_featured': 'Хіти продажу',
+            'sec_categories': 'Категорії',
+            'sec_collection': 'Колекції',
+            'sec_articles': 'Останні статті',
+            'offer_tag': 'ЛІМІТОВАНА СЕРІЯ',
+            'offer_title': 'Поспішай! Знижка 30%',
+            'offer_desc': 'Знайдіть ключки, що підходять саме для вашої гри',
+            'newsletter_title': 'Підпишись на новини',
+            'newsletter_desc': 'Отримуйте знижки, новинки та акції',
+            'btn_signup': 'Підписатись',
+            'footer_desc': 'Більше ніж просто гра. Це стиль життя.',
+            'cat_clubs': 'Ключки',
+            'cat_balls': 'М\'ячі',
+            'cat_bags': 'Сумки',
+            'cat_clothing': 'Одяг',
+            'cat_footwear': 'Взуття',
+            'cat_acc': 'Аксесуари',
+            'btn_add_cart': 'В кошик',
+            'modal_title': 'Вхід',
+            'btn_signin': 'Увійти',
+            'related_products': 'Вам може сподобатись',
+            'delivery_returns': 'Доставка та Повернення',
+            'delivery_info': 'Безкоштовна доставка від $100. Повернення протягом 30 днів.',
+            'material_care': 'Матеріали та Догляд',
+            'material_care_info': '100% Бавовна. Машинне прання в холодній воді, не відбілювати.'
+        }
+    };
+
+    window.changeLanguage = function(lang) {
+        localStorage.setItem('selectedLang', lang);
+
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.textContent.toLowerCase() === (lang === 'uk' ? 'ua' : 'en')) {
+                btn.classList.add('active');
+            }
+        });
+
+        const elements = document.querySelectorAll('[data-key]');
+        elements.forEach(el => {
+            const key = el.dataset.key;
+            if (translations[lang] && translations[lang][key]) {
+                el.innerHTML = translations[lang][key];
+            }
+        });
+
+        loadProducts(); // Оновлюємо товари (якщо треба оновити текст кнопок)
+    };
+
+    const savedLang = localStorage.getItem('selectedLang') || 'en';
+    changeLanguage(savedLang);
+
+    // =========================================
     // 1. BURGER MENU & HEADER LOGIC
     // =========================================
     const burgerMenu = document.getElementById('burgerMenu');
@@ -22,32 +124,72 @@ document.addEventListener('DOMContentLoaded', function() {
             const discountPropose = document.getElementById('discountPropose');
             if (discountPropose) {
                 discountPropose.style.display = 'none';
-                const heroSection = document.querySelector('.hero-section');
-                if(heroSection) heroSection.style.height = 'calc(100vh - 60px)';
             }
         });
     }
 
+    const header = document.querySelector('.header');
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            header.classList.add('sticky');
+        } else {
+            header.classList.remove('sticky');
+        }
+
+        if (scrollTopBtn) {
+            if (window.scrollY > 500) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        }
+    });
+
     // =========================================
-    // 2. LOGIN MODAL LOGIC ("Miss click")
+    // 2. THEME SWITCHER
+    // =========================================
+    window.toggleTheme = function() {
+        const body = document.body;
+        const icon = document.getElementById('themeIcon');
+        const currentTheme = body.getAttribute('data-theme');
+        
+        if (currentTheme === 'dark') {
+            body.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+            if(icon) icon.className = 'fa-regular fa-moon';
+        } else {
+            body.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+            if(icon) icon.className = 'fa-regular fa-sun';
+        }
+    };
+
+    const savedTheme = localStorage.getItem('theme');
+    const icon = document.getElementById('themeIcon');
+    if (savedTheme === 'dark') {
+        document.body.setAttribute('data-theme', 'dark');
+        if(icon) icon.className = 'fa-regular fa-sun';
+    }
+
+    // =========================================
+    // 3. LOGIN MODAL LOGIC
     // =========================================
     const modal = document.getElementById('loginModal');
-    const loginBtns = document.querySelectorAll('.accaunt-icon'); 
+    const loginBtns = document.querySelectorAll('.account-icon');
     const closeModal = document.querySelector('.close-modal');
     const passwordToggleBtn = document.querySelector('.toggle-password');
 
-    // Відкриття модалки
     if (modal) {
         loginBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
                 modal.style.display = "flex";
-                // Невелика затримка для спрацювання CSS transition
                 setTimeout(() => modal.classList.add('active'), 10); 
             });
         });
 
-        // Закриття на хрестик
         if(closeModal) {
             closeModal.addEventListener('click', () => {
                 modal.classList.remove('active');
@@ -55,7 +197,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
 
-        // Закриття при кліку ПОЗА вікном (Miss click)
         window.addEventListener('click', (e) => {
             if (e.target === modal) {
                 modal.classList.remove('active');
@@ -64,7 +205,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Показати/Сховати пароль
     if (passwordToggleBtn) {
         passwordToggleBtn.addEventListener('click', function() {
             const input = this.parentElement.querySelector('input');
@@ -83,53 +223,36 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // =========================================
-    // 3. MOBILE FILTER LOGIC (Shop Page)
-    // =========================================
-    const filterTrigger = document.querySelector('.filter-trigger');
-    const shopSidebar = document.getElementById('shopSidebar');
-    const closeSidebar = document.getElementById('closeSidebar'); // Додав ID в HTML, перевір це
-
-    if (filterTrigger && shopSidebar) {
-        filterTrigger.addEventListener('click', () => {
-            shopSidebar.classList.add('active');
-        });
-        
-        // Закриття сайдбару фільтрів (якщо є кнопка закриття)
-        if(closeSidebar) {
-            closeSidebar.addEventListener('click', () => {
-                shopSidebar.classList.remove('active');
-            });
-        }
-        
-        // Закриття при кліку поза сайдбаром
-        document.addEventListener('click', (e) => {
-            if (!shopSidebar.contains(e.target) && !filterTrigger.contains(e.target) && shopSidebar.classList.contains('active')) {
-                shopSidebar.classList.remove('active');
-            }
-        });
-    }
-
-    // =========================================
-    // 4. LOAD PRODUCTS + SWIPER INITIALIZATION
+    // 4. LOAD PRODUCTS (ОНОВЛЕНА ФУНКЦІЯ)
     // =========================================
     async function loadProducts() {
-        const homeGrid = document.getElementById('productsGrid'); // Це swiper-wrapper на головній
-        const shopGrid = document.getElementById('shopProductsGrid'); // Це сітка на сторінці магазину
+        const homeGrid = document.getElementById('productsGrid'); 
+        const shopGrid = document.getElementById('shopProductsGrid'); 
+        const relatedGrid = document.getElementById('relatedProductsGrid'); // НОВЕ: для сторінки товару
         
-        // Перевіряємо, де ми знаходимось
         const isHome = !!homeGrid; 
-        const targetGrid = homeGrid || shopGrid; 
+        const isRelated = !!relatedGrid;
+        
+        const targetGrid = homeGrid || shopGrid || relatedGrid; 
         
         if (!targetGrid) return;
 
+        // ВИПРАВЛЕННЯ: Видаляємо клас 'products-grid', якщо це слайдер.
+        // Цей клас додає 'flex-wrap: wrap', що ламає Swiper.
+        if ((isHome || isRelated) && targetGrid.classList.contains('products-grid')) {
+            targetGrid.classList.remove('products-grid');
+        }
+
         try {
+            targetGrid.innerHTML = ''; // Очищаємо перед генерацією
+            
             const response = await fetch('products.json');
             const products = await response.json();
 
-            targetGrid.innerHTML = '';
+            // Якщо це блок "схожі товари", показуємо тільки перші 5
+            const productsToShow = isRelated ? products.slice(0, 5) : products;
 
-            products.forEach(product => {
-                // Генеруємо зірочки
+            productsToShow.forEach(product => {
                 let starsHTML = '';
                 for(let i=0; i<5; i++) {
                     starsHTML += i < product.rating 
@@ -137,52 +260,45 @@ document.addEventListener('DOMContentLoaded', function() {
                         : '<i class="fa-regular fa-star"></i>';
                 }
 
-                // Генеруємо бейджі
                 let badgesHTML = '';
                 if(product.badges) {
                     product.badges.forEach(badge => {
-                        if(badge === 'hot') badgesHTML += '<span class="badge hot">HOT</span>';
-                        if(badge === 'sale') badgesHTML += '<span class="badge sale">-50%</span>';
+                        badgesHTML += `<span class="badge ${badge}">${badge.toUpperCase()}</span>`;
                     });
                 }
 
-                // Перевірка ціни
                 const priceHTML = product.oldPrice 
                     ? `<span>$${product.price}</span> <span class="old-price">$${product.oldPrice}</span>`
                     : `$${product.price}`;
 
-                // HTML Вміст картки
                 const cardContent = `
                     <div class="product-image-container">
                         ${badgesHTML}
-                        <a href="product-details.html">
+                        <a href="product-details.html?id=${product.id}"> 
                             <img src="${product.image}" alt="${product.title}">
                         </a>
-                        <button class="add-to-cart-btn">Add to cart</button>
+                        <button class="add-to-cart-btn" data-key="btn_add_cart">Add to cart</button>
                     </div>
                     <div class="product-info">
                         <div class="product-rating">${starsHTML}</div>
                         <h3 class="product-title">
-                            <a href="product-details.html">${product.title}</a>
+                            <a href="product-details.html?id=${product.id}">${product.title}</a>
                         </h3>
                         <div class="product-price">${priceHTML}</div>
                     </div>
                 `;
 
-                // ЛОГІКА РОЗДІЛЕННЯ: Слайдер vs Сітка
-                if (isHome) {
-                    // Якщо головна - створюємо слайд
+                // ЛОГІКА СЛАЙДЕРА: Якщо Головна АБО Схожі товари -> загортаємо в swiper-slide
+                if (isHome || isRelated) {
                     const slide = document.createElement('div');
-                    slide.className = 'swiper-slide'; // Важливо для Swiper
-                    
+                    slide.className = 'swiper-slide';
                     const cardDiv = document.createElement('div');
                     cardDiv.className = 'product-card';
                     cardDiv.innerHTML = cardContent;
-                    
                     slide.appendChild(cardDiv);
                     targetGrid.appendChild(slide);
                 } else {
-                    // Якщо магазин - просто картка
+                    // Інакше (Магазин) просто картка
                     const card = document.createElement('div');
                     card.className = 'product-card';
                     card.innerHTML = cardContent;
@@ -190,316 +306,253 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
 
-            // === ІНІЦІАЛІЗАЦІЯ SWIPER (Тільки після завантаження товарів) ===
-            if (isHome) {
+            // ІНІЦІАЛІЗАЦІЯ SWIPER (якщо Головна або Схожі товари)
+            if (isHome || isRelated) {
                 new Swiper(".mySwiper", {
-                    slidesPerView: 1.2, // Мобільний
+                    slidesPerView: 1.2,
                     spaceBetween: 16,
-                    loop: true, // Нескінченна прокрутка
+                    loop: true,
                     grabCursor: true,
-                    
-                    // Автопрокрутка
-                    autoplay: {
-                        delay: 3000,
-                        disableOnInteraction: false,
-                        pauseOnMouseEnter: true,
-                    },
-
-                    // Пагінація (крапочки)
                     pagination: {
                         el: ".swiper-pagination",
                         clickable: true,
                         dynamicBullets: true,
                     },
-
-                    // Стрілочки
                     navigation: {
                         nextEl: ".swiper-button-next",
                         prevEl: ".swiper-button-prev",
                     },
-
-                    // Адаптивність
                     breakpoints: {
-                        640: {
-                            slidesPerView: 2,
-                            spaceBetween: 20,
-                        },
-                        768: {
-                            slidesPerView: 3,
-                            spaceBetween: 24,
-                        },
-                        1024: {
-                            slidesPerView: 4,
-                            spaceBetween: 24,
-                        },
+                        640: { slidesPerView: 2, spaceBetween: 20 },
+                        768: { slidesPerView: 3, spaceBetween: 24 },
+                        1024: { slidesPerView: 4, spaceBetween: 24 },
                     },
                 });
             }
 
         } catch (error) {
             console.error("Error loading JSON:", error);
-            targetGrid.innerHTML = "<p>Failed to load products. Check JSON path.</p>";
+            targetGrid.innerHTML = "<p>Failed to load products.</p>";
         }
     }
 
     loadProducts();
 
     // =========================================
-    // 5. TIMER (EasyTimer.js)
+    // 5. LOAD ARTICLES
+    // =========================================
+    async function loadArticles() {
+        const grid = document.getElementById('articlesGrid');
+        if (!grid) return;
+        
+        try {
+            const response = await fetch('articles.json');
+            const articles = await response.json();
+            
+            grid.innerHTML = '';
+            
+            articles.forEach(article => {
+                const card = document.createElement('div');
+                card.className = 'article-card';
+                card.innerHTML = `
+                    <a href="${article.link}">
+                        <img src="${article.image}" alt="${article.title}">
+                    </a>
+                    <h3>${article.title}</h3>
+                    <a href="${article.link}" class="read-more">Read More &rarr;</a>
+                `;
+                grid.appendChild(card);
+            });
+        } catch (error) {
+            console.error("Error loading articles:", error);
+        }
+    }
+
+    loadArticles();
+
+    // =========================================
+    // 6. TIMER & FOOTER & PUSH
     // =========================================
     if (document.querySelector('.countdown-timer') && typeof easytimer !== 'undefined') {
        var timer = new easytimer.Timer();
        timer.start({countdown: true, startValues: {days: 2, hours: 12, minutes: 45}});
        
        function updateTimerDisplay() {
-            const t = timer.getTimeValues();
-            const daysEl = document.getElementById('days');
-            if(daysEl) {
-                daysEl.innerText = String(t.days).padStart(2,'0');
-                document.getElementById('hours').innerText = String(t.hours).padStart(2,'0');
-                document.getElementById('minutes').innerText = String(t.minutes).padStart(2,'0');
-                document.getElementById('seconds').innerText = String(t.seconds).padStart(2,'0');
-            }
-       }
+           const t = timer.getTimeValues();
+           const elements = document.querySelectorAll('.countdown-timer');
+           elements.forEach(el => {
+                const daysSpan = el.querySelector('.timer-box:nth-child(1) .timer-value');
+                const hoursSpan = el.querySelector('.timer-box:nth-child(2) .timer-value');
+                const minsSpan = el.querySelector('.timer-box:nth-child(3) .timer-value');
+                const secsSpan = el.querySelector('.timer-box:nth-child(4) .timer-value'); // Якщо є секунди
 
+                if(daysSpan) daysSpan.innerText = String(t.days).padStart(2,'0');
+                if(hoursSpan) hoursSpan.innerText = String(t.hours).padStart(2,'0');
+                if(minsSpan) minsSpan.innerText = String(t.minutes).padStart(2,'0');
+                if(secsSpan) secsSpan.innerText = String(t.seconds).padStart(2,'0');
+           });
+       }
        timer.addEventListener('secondsUpdated', updateTimerDisplay);
-       timer.addEventListener('started', updateTimerDisplay); // Щоб не чекати 1 сек при завантаженні
+       timer.addEventListener('started', updateTimerDisplay);
     }
 
-    // =========================================
-    // 6. FOOTER ACCORDION
-    // =========================================
     const accordions = document.querySelectorAll('.footer-accordion .accordion-toggle');
     accordions.forEach(acc => {
         acc.addEventListener('click', function() {
             const content = this.nextElementSibling;
-            
-            // Перевірка на наявність контенту
             if (content) {
-                content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + "px";
-                const icon = this.querySelector('.fa-chevron-up');
-                if(icon) {
-                    icon.style.transform = content.style.maxHeight ? "rotate(180deg)" : "rotate(0deg)";
-                }
+                const isActive = content.style.maxHeight;
+                content.style.maxHeight = isActive ? null : content.scrollHeight + "px";
+                this.parentElement.classList.toggle('active');
             }
         });
     });
-});
 
-// === 0. LANGUAGE DATA & LOGIC ===
-const translations = {
-    'en': {
-        'discount_text': '30% off storewide — Limited time!',
-        'nav_home': 'Home',
-        'nav_shop': 'Shop',
-        'nav_product': 'Product',
-        'nav_all': 'All Products',
-        'nav_contact': 'Contact Us',
-        'hero_title': 'More than<br>just a game.<br>It\'s a lifestyle.',
-        'hero_desc': "Whether you're just starting out, have played your whole life or you're a Tour pro, your swing is like a fingerprint.",
-        'btn_shop_now': 'Shopping Now',
-        'sec_featured': 'Featured',
-        'sec_categories': 'Shop by Categories',
-        'sec_collection': 'Shop Collection',
-        'sec_articles': 'Latest Articles',
-        'offer_tag': 'LIMITED EDITION',
-        'offer_title': 'Hurry up! 30% OFF',
-        'offer_desc': 'Find clubs that are right for your game',
-        'newsletter_title': 'Join Our Newsletter',
-        'newsletter_desc': 'Sign up for deals, new products and promotions',
-        'btn_signup': 'Signup',
-        'footer_desc': "More than just a game. It's a lifestyle.",
-        'cat_clubs': 'Golf Clubs',
-        'cat_balls': 'Golf Balls',
-        'cat_bags': 'Golf Bags',
-        'cat_clothing': 'Clothing & Rainwear',
-        'cat_footwear': 'Footwear',
-        'cat_acc': 'Accessories',
-        'btn_add_cart': 'Add to cart',
-        'modal_title': 'Sign In',
-        'btn_signin': 'Sign In'
-    },
-    'uk': {
-        'discount_text': 'Знижка 30% на все — Тільки зараз!',
-        'nav_home': 'Головна',
-        'nav_shop': 'Магазин',
-        'nav_product': 'Товар',
-        'nav_all': 'Всі товари',
-        'nav_contact': 'Контакти',
-        'hero_title': 'Більше ніж<br>просто гра.<br>Це стиль життя.',
-        'hero_desc': 'Незалежно від того, чи ви тільки починаєте, граєте все життя або ви профі — ваш удар унікальний, як відбиток пальця.',
-        'btn_shop_now': 'Купити зараз',
-        'sec_featured': 'Хіти продажу',
-        'sec_categories': 'Категорії',
-        'sec_collection': 'Колекції',
-        'sec_articles': 'Останні статті',
-        'offer_tag': 'ЛІМІТОВАНА СЕРІЯ',
-        'offer_title': 'Поспішай! Знижка 30%',
-        'offer_desc': 'Знайдіть ключки, що підходять саме для вашої гри',
-        'newsletter_title': 'Підпишись на новини',
-        'newsletter_desc': 'Отримуйте знижки, новинки та акції',
-        'btn_signup': 'Підписатись',
-        'footer_desc': 'Більше ніж просто гра. Це стиль життя.',
-        'cat_clubs': 'Ключки',
-        'cat_balls': 'М\'ячі',
-        'cat_bags': 'Сумки',
-        'cat_clothing': 'Одяг',
-        'cat_footwear': 'Взуття',
-        'cat_acc': 'Аксесуари',
-        'btn_add_cart': 'В кошик',
-        'modal_title': 'Вхід',
-        'btn_signin': 'Увійти'
-    }
-};
-
-// === THEME SWITCHER LOGIC ===
-
-function toggleTheme() {
-    const body = document.body;
-    const icon = document.getElementById('themeIcon');
-    
-    // Перевіряємо поточну тему
-    const currentTheme = body.getAttribute('data-theme');
-    
-    if (currentTheme === 'dark') {
-        // Вмикаємо світлу
-        body.setAttribute('data-theme', 'light');
-        localStorage.setItem('theme', 'light');
-        if(icon) icon.className = 'fa-regular fa-moon'; // Іконка місяця
-    } else {
-        // Вмикаємо темну
-        body.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
-        if(icon) icon.className = 'fa-regular fa-sun'; // Іконка сонця
-    }
-}
-
-// Функція для перевірки збереженої теми при завантаженні
-function initTheme() {
-    const savedTheme = localStorage.getItem('theme');
-    const icon = document.getElementById('themeIcon');
-    
-    if (savedTheme === 'dark') {
-        document.body.setAttribute('data-theme', 'dark');
-        if(icon) icon.className = 'fa-regular fa-sun';
-    }
-}
-
-// Додаємо виклик initTheme() до події DOMContentLoaded
-document.addEventListener('DOMContentLoaded', function() {
-    initTheme();
-});
-
-// Функція зміни мови
-function changeLanguage(lang) {
-    // 1. Зберігаємо вибір у пам'ять браузера
-    localStorage.setItem('selectedLang', lang);
-
-    // 2. Змінюємо активний клас на кнопках
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.remove('active');
-        if (btn.textContent.toLowerCase() === (lang === 'uk' ? 'ua' : 'en')) {
-            btn.classList.add('active');
-        }
-    });
-
-    // 3. Знаходимо всі елементи з атрибутом "key" і змінюємо текст
-    const elements = document.querySelectorAll('[key]');
-    elements.forEach(el => {
-        const key = el.getAttribute('key');
-        if (translations[lang][key]) {
-            el.innerHTML = translations[lang][key];
-        }
-    });
-
-    // 4. Перезавантажуємо товари (якщо ми на сторінці з товарами), 
-    // щоб оновити назви товарів (якщо вони у вас будуть перекладені в JSON)
-    if (typeof loadProducts === 'function') {
-        loadProducts(); 
-    }
-}
-
-// Запуск при завантаженні сторінки
-document.addEventListener('DOMContentLoaded', function() {
-    // Перевіряємо, що вибрав користувач раніше, або ставимо EN за замовчуванням
-    const savedLang = localStorage.getItem('selectedLang') || 'en';
-    changeLanguage(savedLang);
-});
-
-// Sticky Header Logic
-const header = document.querySelector('.header');
-/* Відслідковуємо скрол */
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 100) { // Якщо прокрутили більше 100px
-        header.classList.add('sticky');
-    } else {
-        header.classList.remove('sticky');
-    }
-});
-
-async function loadArticles() {
-    const grid = document.getElementById('articlesGrid');
-    if (!grid) return;
-    
-    try {
-        const response = await fetch('articles.json');
-        const articles = await response.json();
-        
-        grid.innerHTML = '';
-        
-        articles.forEach(article => {
-            const card = document.createElement('div');
-            card.className = 'article-card';
-            // Можна додати і data-aos="fade-up" для анімації
-            card.setAttribute('data-aos', 'fade-up'); 
-            
-            card.innerHTML = `
-                <a href="${article.link}">
-                    <img src="${article.image}" alt="${article.title}">
-                </a>
-                <h3>${article.title}</h3>
-                <a href="${article.link}" class="read-more">Read More &rarr;</a>
-            `;
-            grid.appendChild(card);
-        });
-    } catch (error) {
-        console.error(error);
-    }
-}
-
-// Не забудь викликати функцію!
-loadArticles();
-
-// =========================================
-    // 7. PUSH NOTIFICATIONS (Web API)
-    // =========================================
     const singBtn = document.getElementById('singBtn');
-
-    // Перевірка: чи підтримує браузер сповіщення
-    if (!("Notification" in window)) {
-        console.log("Цей браузер не підтримує сповіщення.");
-        if(singBtn) singBtn.style.display = 'none'; // Ховаємо кнопку, якщо не підтримує
-    }
-
-    if (singBtn) {
-        singBtn.addEventListener('click', () => {
-            // Запитуємо дозвіл
+    if (singBtn && "Notification" in window) {
+        singBtn.addEventListener('click', (e) => {
+            e.preventDefault(); 
             Notification.requestPermission().then((permission) => {
                 if (permission === "granted") {
-                    // Якщо користувач натиснув "Дозволити"
-                    const notification = new Notification("3legant Golf Store", {
-                        body: "Дякуємо за підписку! Тепер ви будете отримувати найкращі пропозиції першими.",
+                    new Notification("3legant Golf Store", {
+                        body: "Thank you for subscribing!",
                     });
-                    
-                    // Змінюємо іконку на зафарбовану, щоб показати статус
-                    const icon = singBtn.querySelector('i');
-                    icon.classList.remove('fa-regular');
-                    icon.classList.add('fa-solid');
-                    
-                } else if (permission === "denied") {
-                    // Якщо користувач заблокував
-                    alert("Ви заблокували сповіщення. Змініть налаштування браузера, якщо передумаєте.");
                 }
             });
         });
     }
+
+    // =========================================
+    // 7. PRODUCT DETAILS PAGE LOGIC
+    // =========================================
+    async function loadProductDetails() {
+        const titleEl = document.getElementById('detailsTitle');
+        if (!titleEl) return;
+
+        const params = new URLSearchParams(window.location.search);
+        const productId = params.get('id');
+
+        if (!productId) {
+            // window.location.href = 'shop.html'; 
+            return;
+        }
+
+        try {
+            const response = await fetch('products.json');
+            const products = await response.json();
+            const product = products.find(p => p.id == productId);
+
+            if (!product) {
+                titleEl.innerText = 'Product not found';
+                return;
+            }
+
+            const mainImg = document.getElementById('mainImg');
+            if(mainImg) mainImg.src = product.image;
+
+            titleEl.innerText = product.title;
+            
+            const breadcrumbTitle = document.getElementById('breadcrumbTitle');
+            if(breadcrumbTitle) breadcrumbTitle.innerText = product.title;
+
+            const priceEl = document.getElementById('detailsPrice');
+            if(priceEl) {
+                priceEl.innerHTML = product.oldPrice 
+                    ? `$${product.price} <span class="old-price">$${product.oldPrice}</span>`
+                    : `$${product.price}`;
+            }
+
+            const descEl = document.getElementById('detailsDesc');
+            if(descEl && product.description) {
+                descEl.innerText = product.description;
+            }
+
+            const ratingContainer = document.getElementById('detailsRating');
+            if(ratingContainer) {
+                let stars = '';
+                for(let i=0; i<5; i++) stars += i < product.rating ? '<i class="fa-solid fa-star"></i>' : '<i class="fa-regular fa-star"></i>';
+                ratingContainer.innerHTML = stars + `<span style="color: var(--secondary-text); font-size: 0.8rem; margin-left: 8px;">(Reviews)</span>`;
+            }
+
+            // Завантаження мініатюр
+            const thumbnailsContainer = document.querySelector('.thumbnails');
+            if (thumbnailsContainer && product.images) {
+                thumbnailsContainer.innerHTML = '';
+                product.images.forEach((imgSrc, index) => {
+                    const img = document.createElement('img');
+                    img.src = imgSrc;
+                    if (index === 0) img.classList.add('active-thumb');
+                    
+                    img.addEventListener('click', function() {
+                        if(mainImg) mainImg.src = this.src;
+                        document.querySelectorAll('.thumbnails img').forEach(i => i.classList.remove('active-thumb'));
+                        this.classList.add('active-thumb');
+                    });
+                    
+                    thumbnailsContainer.appendChild(img);
+                });
+            } else if (thumbnailsContainer) {
+                // Якщо немає масиву images, використовуємо головну картнку 3 рази як заглушку
+                 thumbnailsContainer.innerHTML = '';
+                 for(let i=0; i<3; i++) {
+                     const img = document.createElement('img');
+                     img.src = product.image;
+                     if(i===0) img.classList.add('active-thumb');
+                     img.addEventListener('click', function() {
+                        if(mainImg) mainImg.src = this.src;
+                        document.querySelectorAll('.thumbnails img').forEach(i => i.classList.remove('active-thumb'));
+                        this.classList.add('active-thumb');
+                    });
+                     thumbnailsContainer.appendChild(img);
+                 }
+            }
+
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    loadProductDetails();
+
+    // =========================================
+    // 8. INTERACTIVE ELEMENTS (WISHLIST, COUNTER)
+    // =========================================
+    
+    // Wishlist Button
+    const wishlistBtn = document.querySelector('.wishlist-btn');
+    if (wishlistBtn) {
+        wishlistBtn.addEventListener('click', function() {
+            this.classList.toggle('active');
+            const icon = this.querySelector('i');
+            if (this.classList.contains('active')) {
+                icon.classList.remove('fa-regular');
+                icon.classList.add('fa-solid');
+                icon.style.color = '#ff0000';
+            } else {
+                icon.classList.remove('fa-solid');
+                icon.classList.add('fa-regular');
+                icon.style.color = '';
+            }
+        });
+    }
+
+    // Counter
+    const minusBtn = document.querySelector('.qty-btn.minus');
+    const plusBtn = document.querySelector('.qty-btn.plus');
+    const qtyInput = document.querySelector('.qty-input');
+
+    if (minusBtn && plusBtn && qtyInput) {
+        minusBtn.addEventListener('click', () => {
+            let val = parseInt(qtyInput.value);
+            if (val > 1) qtyInput.value = val - 1;
+        });
+        plusBtn.addEventListener('click', () => {
+            let val = parseInt(qtyInput.value);
+            qtyInput.value = val + 1;
+        });
+        qtyInput.addEventListener('change', function() {
+            if (this.value < 1 || isNaN(this.value)) this.value = 1;
+        });
+    }
+
+});

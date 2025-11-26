@@ -6,7 +6,8 @@
       "oldPrice": null,
       "image": "Assets/styles/Images/product-glove.webp",
       "rating": 5,
-      "badges": ["hot"]
+      "badges": ["hot"],
+      "description": "Engineered for high launch and low spin..."
     },
     {
       "id": 2,
@@ -15,7 +16,8 @@
       "oldPrice": 49.99,
       "image": "Assets/styles/Images/product-shirt.webp",
       "rating": 4,
-      "badges": ["hot", "sale"]
+      "badges": ["hot", "sale"],
+      "description": "Engineered for high launch and low spin..."
     },
     {
       "id": 3,
@@ -24,7 +26,8 @@
       "oldPrice": null,
       "image": "Assets/styles/Images/product-glove-2.webp",
       "rating": 5,
-      "badges": ["hot"]
+      "badges": ["hot"],
+      "description": "Engineered for high launch and low spin..."
     },
     {
       "id": 4,
@@ -33,7 +36,8 @@
       "oldPrice": null,
       "image": "Assets/styles/Images/product-bag.webp",
       "rating": 4,
-      "badges": ["hot"]
+      "badges": ["hot"],
+      "description": "Engineered for high launch and low spin..."
     },
     {
       "id": 5,
@@ -42,6 +46,7 @@
       "oldPrice": null,
       "image": "Assets/styles/Images/product-shoes.webp",
       "rating": 4,
-      "badges": ["hot", "sale"]
+      "badges": ["hot", "sale"],
+      "description": "Engineered for high launch and low spin..."
     }
   ]

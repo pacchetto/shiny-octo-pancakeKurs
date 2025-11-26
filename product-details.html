@@ -4,26 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Product details for Golf T-Shirt. High quality material.">
+    <meta name="description" content="Product details">
     <title>Product Details - 3legant</title>
     <link rel="icon" type="image/png" href="Assets/styles/Images/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="Assets/styles/style.css">
-</head>
+    <link rel="stylesheet" href="Assets/styles/product-details-puma.css"> </head>
 <body>
-    <section class="header-section">
+    <div class="header-wrapper">
         <div id="discountPropose" class="discount-propose">
             <div class="ticket-icon"></div>
-            <span key="discount_text">30% off storewide — Limited time! </span>
+            <span data-key="discount_text">30% off storewide — Limited time! </span>
             <a href="shop.html">
-                <span   ">Shop Now</span>
+                <span data-key="btn_shop_now">Shop Now</span>
             </a>
-            <i class="fa-solid fa-arrow-right d-none"></i>
             <i id="btnX" class="fa-solid fa-x move-right btnX-marg"></i>
         </div>
         <header class="header d-flex">
-            <div class="content-wrap d-flex w-full justyfy-between">
+            <div class="content-wrap d-flex w-full justify-between">
                 <div class="header-left">
                     <div id="burgerMenu" class="burger-menu">
                         <i id="openIcon" class="fa-solid fa-bars"></i>
@@ -35,23 +34,16 @@
                 </div>    
                 <nav id="headerNav" class="header-nav">
                     <ul class="main-menu">
-                        <li>
-                            <a href="index.html" style="font-weight: 600;" key="nav_home">Home</a>
-                        </li>
-                        
+                        <li><a href="index.html" style="font-weight: 600;" data-key="nav_home">Home</a></li>
                         <li class="dropdown">
-                            <a href="shop.html"><span key="nav_shop">Shop</span> <i class="fa-solid fa-chevron-down"></i></a>
+                            <a href="shop.html"><span data-key="nav_shop">Shop</span> <i class="fa-solid fa-chevron-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="shop.html" key="nav_all">All Products</a></li>
-                                <li><a href="shop.html" key="cat_clothing">T-Shirts</a></li>
-                                <li><a href="shop.html" key="cat_clubs">Clubs</a></li>
-                                <li><a href="shop.html" key="cat_acc">Accessories</a></li>
+                                <li><a href="shop.html" data-key="nav_all">All Products</a></li>
+                                <li><a href="shop.html" data-key="cat_clothing">T-Shirts</a></li>
+                                <li><a href="shop.html" data-key="cat_clubs">Clubs</a></li>
                             </ul>
                         </li>
-                        <li>
-                            <a href="contact.html" key="nav_contact">Contact Us</a>
-                        </li>
-
+                        <li><a href="contact.html" data-key="nav_contact">Contact Us</a></li>
                         <li class="lang-switch-li">
                             <span class="lang-btn active" onclick="changeLanguage('en')">EN</span>
                             <span class="divider">|</span>
@@ -63,66 +55,61 @@
                     </ul>
                 </nav>
                 <div class="bag-with-num">
-                    <div class="search-icon">
-                        <a href="#" class="search-btn"></a>
-                    </div>
-                    <div class="accaunt-icon desktop-only" title="Sign In">
-                        <a href="#" class="uppercase-btn"></a>
-                    </div>
-                    <div class="bag-icon" title="Bag">
-                        <a href="#"></a>
-                    </div>
-                    <div class="num-icon" title="Number of items">
-                        <a href="#"></a>
-                    </div>
+                    <div class="search-icon"><a href="#" class="search-btn"></a></div>
+                    <div class="account-icon desktop-only"><a href="#" class="uppercase-btn"></a></div>
+                    <div class="bag-icon"><a href="#"></a></div>
+                    <div class="num-icon"><a href="#"></a></div>
                 </div>
             </div>
         </header>
+    </div>
 
     <div class="container" style="padding: 20px 20px 0;">
         <div class="breadcrumbs">
-            <a href="index.html">Home</a> 
+            <a href="index.html" data-key="nav_home">Home</a> 
             <i class="fa-solid fa-chevron-right"></i> 
-            <a href="shop.html">Shop</a>
+            <a href="shop.html" data-key="nav_shop">Shop</a>
             <i class="fa-solid fa-chevron-right"></i>
-            <span>Men's Golf T-Shirt</span>
+            <span id="breadcrumbTitle">Loading...</span> 
         </div>
     </div>
 
     <section class="product-details-section">
         <div class="container product-details-container">
-            <div class="product-gallery">
+            <div class="product-gallery-wrapper"> <div class="thumbnails"> </div>
                 <div class="main-image">
-                    <img id="mainImg" src="Assets/styles/Images/product-shirt.webp" alt="Main Product">
+                    <img id="mainImg" src="" alt="Main Product" style="min-height: 400px; background: #f3f5f7;">
                     <span class="badge hot" style="top: 20px; left: 20px;">HOT</span>
-                </div>
-                <div class="thumbnails">
-                    <img src="Assets/styles/Images/product-shirt.webp" onclick="changeImage(this)" class="active-thumb">
-                    <img src="Assets/styles/Images/product-glove.webp" onclick="changeImage(this)">
-                    <img src="Assets/styles/Images/product-bag.webp" onclick="changeImage(this)">
                 </div>
             </div>
 
             <div class="product-info-block">
-                <div class="product-rating">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    <span style="color: var(--secondary-text); font-size: 0.8rem; margin-left: 8px;">(11 Reviews)</span>
+                <h1 class="product-main-title" id="detailsTitle">Loading product...</h1>
+                
+                <div class="product-rating" id="detailsRating">
+                    </div>
+                
+                <div class="product-price-large" id="detailsPrice">
+                    --.--
                 </div>
-                <h1 class="product-main-title">Greg Norman - Men's Shark Logo Golf Polo Shirt</h1>
-                <div class="product-price-large">
-                    $24.99 <span class="old-price">$49.99</span>
-                </div>
-                <p class="product-description">
-                    Experience the ultimate comfort on the green with this premium polo shirt. 
-                    Designed for flexibility and breathability, allowing you to swing with ease.
+                
+                <p class="product-description" id="detailsDesc">
+                    Description loading...
                 </p>
 
-                <div class="product-timer">
-                    <p>Offer expires in:</p>
-                    <div class="countdown-timer" style="justify-content: flex-start; margin-bottom: 20px;">
-                        <div class="timer-box"><span class="timer-value">02</span><span class="timer-label">Days</span></div>
-                        <div class="timer-box"><span class="timer-value">12</span><span class="timer-label">Hours</span></div>
-                        <div class="timer-box"><span class="timer-value">45</span><span class="timer-label">Mins</span></div>
+                <hr class="product-divider"> 
+
+                <div class="product-options">
+                    <div class="option-group">
+                        <label for="size-select">Size:</label>
+                        <select id="size-select">
+                            <option value="">Select Size</option>
+                            <option value="s">S</option>
+                            <option value="m">M</option>
+                            <option value="l">L</option>
+                            <option value="xl">XL</option>
+                        </select>
+                        <a href="#" class="size-guide">Size Guide</a>
                     </div>
                 </div>
 
@@ -132,63 +119,151 @@
                         <input type="number" value="1" min="1" class="qty-input">
                         <button class="qty-btn plus">+</button>
                     </div>
-                    <button class="add-to-cart-btn-large">Add to Cart</button>
+                    <button class="add-to-cart-btn-large" data-key="btn_add_cart">Add to Cart</button>
+                    <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button> 
+                </div>
+
+                <hr class="product-divider">
+
+                <div class="product-meta">
+                    <p><strong>SKU:</strong> <span id="detailsSku">1117</span></p>
+                    <p><strong>Category:</strong> Golf</p>
                 </div>
                 
-                <div class="product-meta">
-                    <p><strong>SKU:</strong> 1117</p>
-                    <p><strong>Category:</strong> T-Shirts, Men</p>
+                <div class="product-accordions">
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span data-key="delivery_returns">Delivery & Returns</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p data-key="delivery_info">Free delivery for orders over $100. Returns within 30 days.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span data-key="material_care">Material & Care</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p data-key="material_care_info">100% Cotton. Machine wash cold, do not bleach, tumble dry low.</p>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <section class="product-tabs-section">
-        <div class="container">
-            <div class="tabs-header">
-                <button class="tab-btn active" onclick="openTab(event, 'desc')">Description</button>
-                <button class="tab-btn" onclick="openTab(event, 'reviews')">Reviews</button>
-            </div>
-            <div class="tab-content active" id="desc">
-                <h3>Product Information</h3>
-                <p>Here you can add more detailed information about the product features, materials, and care instructions.</p>
-            </div>
-            <div class="tab-content" id="reviews">
-                <h3>Customer Reviews</h3>
-                <p>No reviews yet.</p>
-            </div>
+    <section class="related-products-section container">
+        <h2 data-key="related_products">You might also like</h2>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper products-grid" id="relatedProductsGrid">
+                </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
         </div>
     </section>
 
     <footer class="footer">
-       <div class="container footer-main"><p style="text-align: center; color: white;">Footer Placeholder</p></div>
+        <div class="container footer-main">
+            <div class="footer-col about">
+                <a href="#" class="footer-logo">3legant.</a>
+                <p data-key="footer_desc">More than just a game. It's a lifestyle.</p>
+                <div class="social-icons">
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+    
+            <div class="footer-col links footer-accordion">
+                <h4 class="accordion-toggle">Page <i class="fa-solid fa-chevron-up"></i></h4>
+                <ul class="accordion-content">
+                    <li><a href="index.html" data-key="nav_home">Home</a></li>
+                    <li><a href="shop.html" data-key="nav_shop">Shop</a></li>
+                    <li><a href="contact.html" data-key="nav_contact">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col links footer-accordion">
+                <h4 class="accordion-toggle">Info <i class="fa-solid fa-chevron-up"></i></h4>
+                <ul class="accordion-content">
+                    <li><a href="404.html">Shipping Policy</a></li>
+                    <li><a href="#">Return & Refund</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-col office">
+                <h4>Office</h4>
+                <p>43111 Hai Trieu street, District 1, HCMC Vietnam</p>
+                <p>84-756-3237</p>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>Copyright &copy; 2024 3legant. All rights reserved</p>
+            <div class="policy-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+            </div>
+            <div class="payment-icons">
+                <img src="Assets/styles/Images/visa.webp" alt="Visa">
+                <img src="Assets/styles/Images/american_express.webp" alt="American Express">
+                <img src="Assets/styles/Images/mastercard.webp" alt="Mastercard">
+                <img src="Assets/styles/Images/stripe.webp" alt="Stripe">
+                <img src="Assets/styles/Images/paypal.webp" alt="Paypal">
+                <img src="Assets/styles/Images/apple_pay.webp" alt="Apple Pay">
+            </div>
+        </div>
     </footer>
 
+    <div id="loginModal" class="modal-overlay">
+        <section class="modal-content" aria-labelledby="modalTitle">
+            <div class="modal-header">
+                <h2 id="modalTitle" data-key="modal_title">Sign In</h2>
+                <span class="close-modal" aria-label="Close modal">&times;</span>
+            </div>
+            <form class="login-form">
+                <div class="form-group">
+                    <input type="email" placeholder="Email address" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Password" required>
+                    <button type="button" class="toggle-password" aria-label="Toggle password visibility" style="background:none; border:none; position:absolute; right:0; top:12px; cursor:pointer;">
+                        <i class="fa-regular fa-eye show-pass-icon"></i>
+                   </button>
+                </div>
+                <div class="form-footer">
+                    <label class="remember-me">
+                        <input type="checkbox"> Remember me
+                    </label>
+                    <a href="#" class="forgot-pass">Forgot password?</a>
+                </div>
+                <button type="submit" class="login-btn" data-key="btn_signin">Sign In</button>
+            </form>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/easytimer.js@4.5.4/dist/easytimer.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="Assets/script/script.js"></script>
     
     <script>
-        // Change Main Image
-        function changeImage(element) {
-            document.getElementById('mainImg').src = element.src;
-            document.querySelectorAll('.thumbnails img').forEach(img => img.classList.remove('active-thumb'));
-            element.classList.add('active-thumb');
-        }
-
-        // Tabs
-        function openTab(evt, tabName) {
-            var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tab-content");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-            }
-            tablinks = document.getElementsByClassName("tab-btn");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-            document.getElementById(tabName).style.display = "block";
-            evt.currentTarget.className += " active";
-        }
+        // Проста логіка для табів (тепер акордеонів)
+        document.querySelectorAll('.accordion-header').forEach(button => {
+            button.addEventListener('click', () => {
+                const accordionContent = button.nextElementSibling;
+                button.classList.toggle('active');
+                if (button.classList.contains('active')) {
+                    accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
+                } else {
+                    accordionContent.style.maxHeight = 0;
+                }
+            });
+        });
     </script>
 </body>
 </html>

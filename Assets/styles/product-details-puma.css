@@ -1,0 +1,402 @@
+/* product-details-puma.css */
+
+/* Загальні налаштування, скидання стилів */
+.product-details-container {
+    display: flex;
+    flex-wrap: wrap; /* Дозволити обгортання на мобільних */
+    gap: 40px; /* Відстань між галереєю та інформаційним блоком */
+    padding: 40px 0;
+    justify-content: center; /* Вирівнювання по центру на малих екранах */
+}
+
+/* Галерея зображень */
+.product-gallery-wrapper {
+    display: flex;
+    gap: 20px; /* Відстань між мініатюрами та основним зображенням */
+    flex-direction: row; /* Мініатюри зліва, основне справа */
+    max-width: 60%; /* Основна ширина для галереї */
+    width: 100%; /* Займає всю ширину контейнера на мобільних */
+    /* flex: 2; */ /* Можна використовувати flex для співвідношення ширини */
+}
+
+.product-gallery-wrapper .thumbnails {
+    display: flex;
+    flex-direction: column; /* Мініатюри йдуть вертикально */
+    gap: 10px;
+    width: 80px; /* Фіксована ширина для мініатюр */
+    flex-shrink: 0; /* Щоб не зменшувалися */
+}
+
+.product-gallery-wrapper .thumbnails img {
+    width: 100%;
+    height: 80px; /* Фіксована висота для мініатюр */
+    object-fit: cover;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: border-color 0.2s ease;
+}
+
+.product-gallery-wrapper .thumbnails img.active-thumb,
+.product-gallery-wrapper .thumbnails img:hover {
+    border-color: var(--primary-color);
+}
+
+.product-gallery-wrapper .main-image {
+    flex-grow: 1; /* Основне зображення займає решту простору */
+    position: relative;
+    max-width: calc(100% - 100px); /* Якщо ширина мініатюр 80px + 20px gap */
+}
+
+.product-gallery-wrapper .main-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.product-gallery-wrapper .main-image .badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    z-index: 10;
+}
+
+/* Блок інформації про продукт */
+.product-info-block {
+    flex: 1; /* Займає решту простору, щоб бути поруч з галереєю */
+    min-width: 350px; /* Мінімальна ширина для блоку інформації */
+    max-width: 40%; /* Обмеження ширини, щоб не розтягувалося занадто сильно */
+    padding-left: 20px; /* Невеликий відступ від галереї */
+}
+
+.product-main-title {
+    font-size: 2.2em; /* Більший заголовок */
+    margin-bottom: 10px;
+    color: var(--title-color);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.product-rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    color: #ffc107; /* Колір зірок */
+}
+.product-rating i {
+    font-size: 1em;
+    margin-right: 2px;
+}
+.product-rating span {
+    margin-left: 10px;
+    color: var(--secondary-text);
+    font-size: 0.9em;
+}
+
+.product-price-large {
+    font-size: 1.8em; /* Більший розмір ціни */
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+.product-price-large .old-price {
+    font-size: 0.7em;
+    color: var(--secondary-text);
+    text-decoration: line-through;
+    margin-left: 10px;
+    font-weight: 400;
+}
+
+.product-description {
+    line-height: 1.6;
+    color: var(--text-color);
+    margin-bottom: 25px;
+}
+
+.product-divider {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 30px 0;
+}
+
+/* Опції продукту (розмір) */
+.product-options .option-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+.product-options .option-group label {
+    font-weight: 600;
+    color: var(--title-color);
+    min-width: 60px;
+}
+.product-options .option-group select {
+    padding: 10px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    flex-grow: 1;
+    max-width: 200px;
+}
+.product-options .option-group .size-guide {
+    color: var(--primary-color);
+    text-decoration: underline;
+    font-size: 0.9em;
+    white-space: nowrap; /* Щоб не переносилося на новий рядок */
+}
+
+
+/* Кнопки дій */
+.product-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.quantity-selector {
+    display: flex;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    overflow: hidden;
+    height: 48px; /* Однакова висота з кнопкою */
+}
+.quantity-selector .qty-btn {
+    background: none;
+    border: none;
+    padding: 0 15px;
+    font-size: 1.2em;
+    cursor: pointer;
+    color: var(--primary-color);
+    transition: background-color 0.2s;
+}
+.quantity-selector .qty-btn:hover {
+    background-color: var(--hover-color);
+}
+.quantity-selector .qty-input {
+    width: 50px;
+    text-align: center;
+    border: none;
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    -moz-appearance: textfield; /* Прибрати стрілки у Firefox */
+}
+.quantity-selector .qty-input::-webkit-outer-spin-button,
+.quantity-selector .qty-input::-webkit-inner-spin-button {
+    -webkit-appearance: none; /* Прибрати стрілки у Chrome/Safari */
+    margin: 0;
+}
+
+.add-to-cart-btn-large {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    flex-grow: 1;
+    transition: background-color 0.3s ease;
+    height: 48px;
+}
+.add-to-cart-btn-large:hover {
+    background-color: var(--dark-primary-color);
+}
+
+.wishlist-btn {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    padding: 12px 15px;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    height: 48px;
+    width: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.wishlist-btn:hover {
+    background-color: var(--light-gray);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+
+/* Метадані товару */
+.product-meta p {
+    margin-bottom: 8px;
+    color: var(--text-color);
+}
+.product-meta p strong {
+    color: var(--title-color);
+    margin-right: 5px;
+}
+
+/* Акордеони */
+.product-accordions {
+    margin-top: 30px;
+}
+.accordion-item {
+    border-bottom: 1px solid var(--border-color);
+}
+.accordion-header {
+    background: none;
+    border: none;
+    width: 100%;
+    padding: 15px 0;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--title-color);
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+.accordion-header:hover {
+    color: var(--primary-color);
+}
+.accordion-header i {
+    transition: transform 0.3s ease;
+}
+.accordion-header.active i {
+    transform: rotate(180deg);
+}
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    padding-bottom: 0; /* Буде встановлено JS при відкритті */
+}
+.accordion-content p {
+    padding: 0 0 15px 0;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Секція рекомендованих товарів */
+.related-products-section {
+    padding: 60px 0;
+    text-align: center;
+}
+.related-products-section h2 {
+    font-size: 2em;
+    margin-bottom: 40px;
+    color: var(--title-color);
+}
+/* Стілі для Swiper з твого script.js можна сюди перенести, якщо хочеш */
+
+
+/* Медіа-запити для адаптивності (як у Puma) */
+@media (max-width: 1024px) {
+    .product-details-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        padding: 30px 20px;
+    }
+    .product-gallery-wrapper {
+        flex-direction: column-reverse; /* Мініатюри під основним зображенням на мобільних */
+        max-width: 100%;
+    }
+    .product-gallery-wrapper .thumbnails {
+        flex-direction: row; /* Мініатюри горизонтально */
+        width: 100%;
+        height: auto;
+        justify-content: center;
+        gap: 15px;
+    }
+    .product-gallery-wrapper .thumbnails img {
+        width: 60px;
+        height: 60px;
+    }
+    .product-gallery-wrapper .main-image {
+        max-width: 100%;
+    }
+    .product-info-block {
+        max-width: 100%;
+        min-width: unset;
+        padding-left: 0;
+        width: 100%;
+    }
+    .product-main-title {
+        font-size: 1.8em;
+    }
+    .product-price-large {
+        font-size: 1.5em;
+    }
+    .product-actions {
+        flex-wrap: wrap; /* Кнопки можуть переноситися на мобільних */
+    }
+    .add-to-cart-btn-large {
+        flex-basis: 100%; /* Кнопка "Додати в кошик" на всю ширину */
+        order: 1; /* В першу чергу */
+    }
+    .quantity-selector {
+        flex-basis: calc(50% - 15px);
+        order: 2;
+    }
+    .wishlist-btn {
+        flex-basis: calc(50% - 15px);
+        order: 3;
+    }
+    .product-options .option-group {
+        flex-wrap: wrap;
+    }
+    .product-options .option-group select {
+        max-width: 100%;
+        flex-grow: unset;
+    }
+    .product-options .option-group .size-guide {
+        margin-left: auto; /* Вирівнюємо праворуч */
+    }
+}
+
+@media (max-width: 768px) {
+    .product-main-title {
+        font-size: 1.6em;
+    }
+    .product-price-large {
+        font-size: 1.4em;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-details-container {
+        padding: 20px 15px;
+    }
+    .product-main-title {
+        font-size: 1.4em;
+    }
+    .product-price-large {
+        font-size: 1.2em;
+    }
+    .product-gallery-wrapper .thumbnails img {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+.wishlist-btn.active {
+    border-color: #ff0000; /* Червона рамка при активності */
+    background-color: #fff5f5; /* Ледь рожевий фон */
+}
+
+/* Анімація натискання (ефект пульсації) */
+.wishlist-btn:active {
+    transform: scale(0.95);
+}
