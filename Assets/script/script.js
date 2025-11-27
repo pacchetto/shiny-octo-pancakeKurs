@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'nav_product': 'Product',
             'nav_all': 'All Products',
             'nav_contact': 'Contact Us',
+            'nav_blog': 'Blog',
             'hero_title': 'More than<br>just a game.<br>It\'s a lifestyle.',
             'hero_desc': "Whether you're just starting out, have played your whole life or you're a Tour pro, your swing is like a fingerprint.",
             'btn_shop_now': 'Shopping Now',
@@ -47,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'nav_product': 'Товар',
             'nav_all': 'Всі товари',
             'nav_contact': 'Контакти',
+            'nav_blog': 'Блог',
             'hero_title': 'Більше ніж<br>просто гра.<br>Це стиль життя.',
             'hero_desc': 'Незалежно від того, чи ви тільки починаєте, граєте все життя або ви профі — ваш удар унікальний, як відбиток пальця.',
             'btn_shop_now': 'Купити зараз',
@@ -96,7 +98,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        loadProducts(); // Оновлюємо товари (якщо треба оновити текст кнопок)
+        // Також оновлюємо атрибут lang у html
+        document.documentElement.lang = lang;
+        
+        loadProducts(); // Оновлюємо товари (якщо треба перекласти щось динамічне)
     };
 
     const savedLang = localStorage.getItem('selectedLang') || 'en';
@@ -132,9 +137,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const scrollTopBtn = document.getElementById('scrollTopBtn');
 
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
+        if (header && window.scrollY > 100) {
             header.classList.add('sticky');
-        } else {
+        } else if (header) {
             header.classList.remove('sticky');
         }
 
@@ -177,17 +182,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // 3. LOGIN MODAL LOGIC
     // =========================================
     const modal = document.getElementById('loginModal');
-    const loginBtns = document.querySelectorAll('.account-icon');
+    const loginBtns = document.querySelectorAll('.account-icon, .uppercase-btn'); // Об'єднав селектори
     const closeModal = document.querySelector('.close-modal');
     const passwordToggleBtn = document.querySelector('.toggle-password');
 
     if (modal) {
-        loginBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
+        // Делегування подій, якщо кнопок кілька
+        document.body.addEventListener('click', (e) => {
+            if (e.target.closest('.account-icon') || e.target.closest('.uppercase-btn')) {
                 e.preventDefault();
                 modal.style.display = "flex";
                 setTimeout(() => modal.classList.add('active'), 10); 
-            });
+            }
         });
 
         if(closeModal) {
@@ -223,12 +229,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // =========================================
-    // 4. LOAD PRODUCTS (ОНОВЛЕНА ФУНКЦІЯ)
+    // 4. LOAD PRODUCTS (Updated with Filters)
     // =========================================
     async function loadProducts() {
         const homeGrid = document.getElementById('productsGrid'); 
         const shopGrid = document.getElementById('shopProductsGrid'); 
-        const relatedGrid = document.getElementById('relatedProductsGrid'); // НОВЕ: для сторінки товару
+        const relatedGrid = document.getElementById('relatedProductsGrid');
         
         const isHome = !!homeGrid; 
         const isRelated = !!relatedGrid;
@@ -237,34 +243,53 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (!targetGrid) return;
 
-        // ВИПРАВЛЕННЯ: Видаляємо клас 'products-grid', якщо це слайдер.
-        // Цей клас додає 'flex-wrap: wrap', що ламає Swiper.
         if ((isHome || isRelated) && targetGrid.classList.contains('products-grid')) {
             targetGrid.classList.remove('products-grid');
         }
 
         try {
-            targetGrid.innerHTML = ''; // Очищаємо перед генерацією
-            
+            targetGrid.innerHTML = '';
             const response = await fetch('products.json');
             const products = await response.json();
+            
+            let productsToShow = products;
 
-            // Якщо це блок "схожі товари", показуємо тільки перші 5
-            const productsToShow = isRelated ? products.slice(0, 5) : products;
+            // --- ФІЛЬТРАЦІЯ (Тільки для shop.html) ---
+            if (shopGrid) {
+                const params = new URLSearchParams(window.location.search);
+                const category = params.get('category');
+                const search = params.get('search');
+
+                if (category && category !== 'all') {
+                    productsToShow = products.filter(p => p.category && p.category.toLowerCase() === category.toLowerCase());
+                }
+                
+                if (search) {
+                    productsToShow = products.filter(p => p.title.toLowerCase().includes(search.toLowerCase()));
+                    // Оновлюємо заголовок сторінки при пошуку
+                    const pageTitle = document.querySelector('.page-title');
+                    if (pageTitle) pageTitle.innerText = `Search results: "${search}"`;
+                }
+                
+                if (productsToShow.length === 0) {
+                    targetGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 40px;">No products found.</p>';
+                    return;
+                }
+            } else if (isRelated) {
+                // Для слайдера related беремо перші 5 (або випадкові)
+                productsToShow = products.slice(0, 5);
+            }
+            // ----------------------------------------
 
             productsToShow.forEach(product => {
                 let starsHTML = '';
                 for(let i=0; i<5; i++) {
-                    starsHTML += i < product.rating 
-                        ? '<i class="fa-solid fa-star"></i>' 
-                        : '<i class="fa-regular fa-star"></i>';
+                    starsHTML += i < product.rating ? '<i class="fa-solid fa-star"></i>' : '<i class="fa-regular fa-star"></i>';
                 }
 
                 let badgesHTML = '';
                 if(product.badges) {
-                    product.badges.forEach(badge => {
-                        badgesHTML += `<span class="badge ${badge}">${badge.toUpperCase()}</span>`;
-                    });
+                    product.badges.forEach(badge => badgesHTML += `<span class="badge ${badge}">${badge.toUpperCase()}</span>`);
                 }
 
                 const priceHTML = product.oldPrice 
@@ -277,7 +302,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <a href="product-details.html?id=${product.id}"> 
                             <img src="${product.image}" alt="${product.title}">
                         </a>
-                        <button class="add-to-cart-btn" data-key="btn_add_cart">Add to cart</button>
+                        <button class="add-to-cart-btn" onclick="addToCart(${product.id})" data-key="btn_add_cart">Add to cart</button>
                     </div>
                     <div class="product-info">
                         <div class="product-rating">${starsHTML}</div>
@@ -288,7 +313,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 `;
 
-                // ЛОГІКА СЛАЙДЕРА: Якщо Головна АБО Схожі товари -> загортаємо в swiper-slide
                 if (isHome || isRelated) {
                     const slide = document.createElement('div');
                     slide.className = 'swiper-slide';
@@ -298,7 +322,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     slide.appendChild(cardDiv);
                     targetGrid.appendChild(slide);
                 } else {
-                    // Інакше (Магазин) просто картка
                     const card = document.createElement('div');
                     card.className = 'product-card';
                     card.innerHTML = cardContent;
@@ -306,22 +329,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
 
-            // ІНІЦІАЛІЗАЦІЯ SWIPER (якщо Головна або Схожі товари)
             if (isHome || isRelated) {
+                // Перевірка, чи Swiper вже ініціалізовано, щоб уникнути помилок
+                if (targetGrid.parentElement.swiper) {
+                    targetGrid.parentElement.swiper.destroy(true, true);
+                }
+                
                 new Swiper(".mySwiper", {
                     slidesPerView: 1.2,
                     spaceBetween: 16,
                     loop: true,
                     grabCursor: true,
-                    pagination: {
-                        el: ".swiper-pagination",
-                        clickable: true,
-                        dynamicBullets: true,
-                    },
-                    navigation: {
-                        nextEl: ".swiper-button-next",
-                        prevEl: ".swiper-button-prev",
-                    },
+                    pagination: { el: ".swiper-pagination", clickable: true, dynamicBullets: true },
+                    navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
                     breakpoints: {
                         640: { slidesPerView: 2, spaceBetween: 20 },
                         768: { slidesPerView: 3, spaceBetween: 24 },
@@ -371,7 +391,7 @@ document.addEventListener('DOMContentLoaded', function() {
     loadArticles();
 
     // =========================================
-    // 6. TIMER & FOOTER & PUSH
+    // 6. TIMER, FOOTER & PUSH
     // =========================================
     if (document.querySelector('.countdown-timer') && typeof easytimer !== 'undefined') {
        var timer = new easytimer.Timer();
@@ -384,7 +404,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const daysSpan = el.querySelector('.timer-box:nth-child(1) .timer-value');
                 const hoursSpan = el.querySelector('.timer-box:nth-child(2) .timer-value');
                 const minsSpan = el.querySelector('.timer-box:nth-child(3) .timer-value');
-                const secsSpan = el.querySelector('.timer-box:nth-child(4) .timer-value'); // Якщо є секунди
+                const secsSpan = el.querySelector('.timer-box:nth-child(4) .timer-value');
 
                 if(daysSpan) daysSpan.innerText = String(t.days).padStart(2,'0');
                 if(hoursSpan) hoursSpan.innerText = String(t.hours).padStart(2,'0');
@@ -407,6 +427,24 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+    
+    // Акордеони на сторінці продукту
+    const prodAccordions = document.querySelectorAll('.product-accordions .accordion-header');
+    if(prodAccordions) {
+        prodAccordions.forEach(acc => {
+            acc.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                if(content) {
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    }
+                }
+            });
+        });
+    }
 
     const singBtn = document.getElementById('singBtn');
     if (singBtn && "Notification" in window) {
@@ -414,9 +452,7 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault(); 
             Notification.requestPermission().then((permission) => {
                 if (permission === "granted") {
-                    new Notification("3legant Golf Store", {
-                        body: "Thank you for subscribing!",
-                    });
+                    new Notification("3legant Golf Store", { body: "Thank you for subscribing!" });
                 }
             });
         });
@@ -432,10 +468,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const params = new URLSearchParams(window.location.search);
         const productId = params.get('id');
 
-        if (!productId) {
-            // window.location.href = 'shop.html'; 
-            return;
-        }
+        if (!productId) return;
 
         try {
             const response = await fetch('products.json');
@@ -463,9 +496,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             const descEl = document.getElementById('detailsDesc');
-            if(descEl && product.description) {
-                descEl.innerText = product.description;
-            }
+            if(descEl && product.description) descEl.innerText = product.description;
 
             const ratingContainer = document.getElementById('detailsRating');
             if(ratingContainer) {
@@ -474,7 +505,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 ratingContainer.innerHTML = stars + `<span style="color: var(--secondary-text); font-size: 0.8rem; margin-left: 8px;">(Reviews)</span>`;
             }
 
-            // Завантаження мініатюр
             const thumbnailsContainer = document.querySelector('.thumbnails');
             if (thumbnailsContainer && product.images) {
                 thumbnailsContainer.innerHTML = '';
@@ -488,23 +518,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         document.querySelectorAll('.thumbnails img').forEach(i => i.classList.remove('active-thumb'));
                         this.classList.add('active-thumb');
                     });
-                    
                     thumbnailsContainer.appendChild(img);
                 });
-            } else if (thumbnailsContainer) {
-                // Якщо немає масиву images, використовуємо головну картнку 3 рази як заглушку
-                 thumbnailsContainer.innerHTML = '';
-                 for(let i=0; i<3; i++) {
-                     const img = document.createElement('img');
-                     img.src = product.image;
-                     if(i===0) img.classList.add('active-thumb');
-                     img.addEventListener('click', function() {
-                        if(mainImg) mainImg.src = this.src;
-                        document.querySelectorAll('.thumbnails img').forEach(i => i.classList.remove('active-thumb'));
-                        this.classList.add('active-thumb');
-                    });
-                     thumbnailsContainer.appendChild(img);
-                 }
             }
 
         } catch (error) {
@@ -515,7 +530,7 @@ document.addEventListener('DOMContentLoaded', function() {
     loadProductDetails();
 
     // =========================================
-    // 8. INTERACTIVE ELEMENTS (WISHLIST, COUNTER)
+    // 8. INTERACTIVE ELEMENTS
     // =========================================
     
     // Wishlist Button
@@ -554,5 +569,241 @@ document.addEventListener('DOMContentLoaded', function() {
             if (this.value < 1 || isNaN(this.value)) this.value = 1;
         });
     }
+    
+    // FORMAT CARD NUMBER (CHECKOUT)
+    const cardInput = document.getElementById('cardNumber');
+    if (cardInput) {
+        cardInput.addEventListener('input', function (e) {
+            let value = e.target.value.replace(/\D/g, ''); 
+            value = value.substring(0, 16); 
+            let formattedValue = value.match(/.{1,4}/g)?.join(' ') || value; 
+            e.target.value = formattedValue;
+        });
+    }
+    
+    const cardExpiry = document.getElementById('cardExpiry');
+    if (cardExpiry) {
+        cardExpiry.addEventListener('input', function (e) {
+            let value = e.target.value.replace(/\D/g, ''); 
+            if (value.length > 2) {
+                value = value.substring(0, 2) + '/' + value.substring(2, 4);
+            }
+            e.target.value = value;
+        });
+    }
 
+    // === SEARCH LOGIC ===
+    const searchIcon = document.querySelector('.search-icon'); 
+    const searchOverlay = document.getElementById('searchOverlay');
+    const closeSearch = document.getElementById('closeSearch');
+    const searchInput = document.getElementById('searchInput');
+
+    if (searchIcon && searchOverlay) {
+        searchIcon.addEventListener('click', (e) => {
+            e.preventDefault();
+            searchOverlay.classList.add('open'); 
+            setTimeout(() => {
+                if(searchInput) searchInput.focus();
+            }, 100);
+        });
+
+        if(closeSearch) {
+            closeSearch.addEventListener('click', () => {
+                searchOverlay.classList.remove('open');
+            });
+        }
+
+        searchOverlay.addEventListener('click', (e) => {
+            if (e.target === searchOverlay) searchOverlay.classList.remove('open');
+        });
+
+        if(searchInput) {
+            searchInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    const query = searchInput.value.trim();
+                    if (query) {
+                        window.location.href = `shop.html?search=${encodeURIComponent(query)}`;
+                    }
+                }
+            });
+        }
+    }
+
+});
+
+// =========================================
+// 9. SHOPPING CART LOGIC (GLOBAL)
+// =========================================
+
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+const cartOverlay = document.getElementById('cartOverlay');
+const cartDrawer = document.getElementById('cartDrawer');
+const closeCart = document.getElementById('closeCart');
+const cartIcon = document.getElementById('cartIcon');
+
+function toggleCart(show) {
+    if(!cartOverlay || !cartDrawer) return;
+    if (show) {
+        cartOverlay.classList.add('open');
+        cartDrawer.classList.add('open');
+    } else {
+        cartOverlay.classList.remove('open');
+        cartDrawer.classList.remove('open');
+    }
+}
+
+if(cartIcon) cartIcon.addEventListener('click', () => toggleCart(true));
+if(closeCart) closeCart.addEventListener('click', () => toggleCart(false));
+if(cartOverlay) cartOverlay.addEventListener('click', (e) => {
+    if(e.target === cartOverlay) toggleCart(false);
+});
+
+async function addToCart(productId, quantity = 1) {
+    if (typeof quantity === 'object') quantity = 1; 
+
+    try {
+        const response = await fetch('products.json');
+        const products = await response.json();
+        const product = products.find(p => p.id == productId);
+
+        if (!product) return;
+
+        const existingItem = cart.find(item => item.id == productId);
+
+        if (existingItem) {
+            existingItem.quantity += parseInt(quantity);
+        } else {
+            cart.push({
+                id: product.id,
+                title: product.title,
+                price: product.price,
+                image: product.image,
+                quantity: parseInt(quantity)
+            });
+        }
+
+        updateCartUI();
+        toggleCart(true);
+
+    } catch (error) {
+        console.error(error);
+    }
+}
+window.addToCart = addToCart;
+
+const addBtnLarge = document.querySelector('.add-to-cart-btn-large');
+if(addBtnLarge) {
+    addBtnLarge.addEventListener('click', () => {
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
+        const qtyInput = document.querySelector('.qty-input');
+        const qty = qtyInput ? qtyInput.value : 1;
+        if(id) addToCart(id, qty);
+    });
+}
+
+window.removeFromCart = function(id) {
+    cart = cart.filter(item => item.id != id);
+    updateCartUI();
+}
+
+window.updateQty = function(id, change) {
+    const item = cart.find(item => item.id == id);
+    if(item) {
+        item.quantity += change;
+        if(item.quantity < 1) item.quantity = 1;
+        updateCartUI();
+    }
+}
+
+function updateCartUI() {
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    const countBadge = document.getElementById('cartCount');
+    const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+    if(countBadge) {
+        countBadge.innerText = totalCount;
+        countBadge.style.display = totalCount > 0 ? 'flex' : 'none';
+    }
+
+    const container = document.getElementById('cartItemsContainer');
+    const totalEl = document.getElementById('cartTotal');
+    
+    if(container && totalEl) {
+        container.innerHTML = '';
+        let totalPrice = 0;
+
+        if (cart.length === 0) {
+            container.innerHTML = '<p style="text-align:center; margin-top: 20px; color: grey;">Your cart is empty</p>';
+        } else {
+            cart.forEach(item => {
+                totalPrice += item.price * item.quantity;
+                container.innerHTML += `
+                    <div class="cart-item">
+                        <img src="${item.image}" alt="${item.title}">
+                        <div class="cart-item-info">
+                            <div class="cart-item-title">${item.title}</div>
+                            <div class="cart-item-price">$${item.price}</div>
+                            <div class="cart-item-controls">
+                                <div class="item-qty">
+                                    <button onclick="updateQty(${item.id}, -1)">-</button>
+                                    <span>${item.quantity}</span>
+                                    <button onclick="updateQty(${item.id}, 1)">+</button>
+                                </div>
+                                <span class="remove-item" onclick="removeFromCart(${item.id})">Remove</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+        totalEl.innerText = `$${totalPrice.toFixed(2)}`;
+    }
+
+    renderCheckout();
+}
+
+function renderCheckout() {
+    const checkoutList = document.getElementById('checkoutItemsList');
+    const checkoutSubtotal = document.getElementById('checkoutSubtotal');
+    const checkoutTotal = document.getElementById('checkoutTotal');
+
+    if(checkoutList && checkoutSubtotal && checkoutTotal) {
+        checkoutList.innerHTML = '';
+        let total = 0;
+
+        cart.forEach(item => {
+            total += item.price * item.quantity;
+            checkoutList.innerHTML += `
+                <div class="summary-row">
+                    <span>${item.title} <span style="color:#6C7275">x${item.quantity}</span></span>
+                    <span>$${(item.price * item.quantity).toFixed(2)}</span>
+                </div>
+            `;
+        });
+
+        checkoutSubtotal.innerText = `$${total.toFixed(2)}`;
+        checkoutTotal.innerText = `$${total.toFixed(2)}`;
+    }
+}
+
+const checkoutForm = document.getElementById('checkoutForm');
+if(checkoutForm) {
+    checkoutForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if(cart.length === 0) {
+            alert('Your cart is empty!');
+            return;
+        }
+        alert('Thank you for your order! It has been placed successfully.');
+        cart = [];
+        updateCartUI();
+        window.location.href = 'index.html';
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    updateCartUI();
 });

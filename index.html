@@ -6,24 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Discover premium golf equipment, apparel, and accessories at 3legant. Shop the latest collections for your best game.">
     <title>Golf Store - 3legant</title>
-    
     <link rel="icon" type="image/png" href="Assets/styles/Images/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="Assets/styles/style.css">
 </head>
 <body>
-    <a href="#" id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll to top">
-        <i class="fa-solid fa-arrow-up"></i>
-    </a>
+    <a href="#" id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll to top"><i class="fa-solid fa-arrow-up"></i></a>
 
     <div class="header-wrapper">
         <div id="discountPropose" class="discount-propose">
             <div class="ticket-icon"></div>
             <span data-key="discount_text">30% off storewide — Limited time! </span>
-            <a href="shop.html">
-                <span data-key="btn_shop_now">Shop Now</span>
-            </a>
+            <a href="shop.html"><span data-key="btn_shop_now">Shop Now</span></a>
             <i class="fa-solid fa-arrow-right d-none"></i>
             <i id="btnX" class="fa-solid fa-x move-right btnX-marg" tabindex="0" role="button" aria-label="Close"></i>
         </div>
@@ -43,25 +38,21 @@
                 <nav id="headerNav" class="header-nav">
                     <ul class="main-menu">
                         <li><a href="index.html" style="font-weight: 600;" data-key="nav_home">Home</a></li>
-                        
                         <li class="dropdown">
                             <a href="shop.html"><span data-key="nav_shop">Shop</span> <i class="fa-solid fa-chevron-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a href="shop.html" data-key="nav_all">All Products</a></li>
-                                <li><a href="shop.html" data-key="cat_clothing">T-Shirts</a></li>
-                                <li><a href="shop.html" data-key="cat_clubs">Clubs</a></li>
-                                <li><a href="shop.html" data-key="cat_acc">Accessories</a></li>
+                                <li><a href="shop.html?category=clothing" data-key="cat_clothing">T-Shirts</a></li>
+                                <li><a href="shop.html?category=clubs" data-key="cat_clubs">Clubs</a></li>
+                                <li><a href="shop.html?category=accessories" data-key="cat_acc">Accessories</a></li>
                             </ul>
                         </li>
-
                         <li><a href="contact.html" data-key="nav_contact">Contact Us</a></li>
-
                         <li class="lang-switch-li">
                             <span class="lang-btn active" onclick="changeLanguage('en')">EN</span>
                             <span class="divider">|</span>
                             <span class="lang-btn" onclick="changeLanguage('uk')">UA</span>
                         </li>
-
                         <li class="theme-toggle" onclick="toggleTheme()">
                             <i class="fa-regular fa-moon" id="themeIcon"></i>
                         </li>
@@ -69,17 +60,11 @@
                 </nav>
                 
                 <div class="bag-with-num">
-                    <div class="search-icon">
-                        <a href="#" class="search-btn" aria-label="Search"></a>
-                    </div>
-                    <div class="account-icon desktop-only" title="Sign In">
-                        <a href="#" class="uppercase-btn" aria-label="Sign In"></a>
-                    </div>
-                    <div class="bag-icon" title="Bag">
-                        <a href="#" aria-label="View Cart"></a>
-                    </div>
-                    <div class="num-icon" title="Number of items">
-                        <a href="#" aria-label="Cart items count"></a>
+                    <div class="search-icon"><a href="#" class="search-btn" aria-label="Search"></a></div>
+                    <div class="account-icon desktop-only" title="Sign In"><a href="#" class="uppercase-btn" aria-label="Sign In"></a></div>
+                    <div class="bag-icon" id="cartIcon" title="Bag">
+                        <a href="javascript:void(0)"></a>
+                        <div class="cart-count-badge" id="cartCount">0</div>
                     </div>
                 </div>
             </div>
@@ -95,136 +80,130 @@
         </div>
     </div>
 
-    <section class="products-section">
-        <div class="container">
-            <h2 class="section-title" data-key="sec_featured">Featured</h2>
-            
-            <div class="swiper mySwiper">
-                <div class="swiper-wrapper" id="productsGrid">
-                    </div>
-                
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
+    <main>
+        <section class="products-section">
+            <div class="container">
+                <h2 class="section-title" data-key="sec_featured">Featured</h2>
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper" id="productsGrid"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
             </div>
-        </div>
-    </section>
-    
-    <section class="categories-section">
-        <div class="container">
-            <h2 class="section-title" data-key="sec_categories">Shop by Categories</h2>
-            <div class="categories-grid">
-                <a href="shop.html" class="category-card">
-                    <img src="Assets/styles/Images/cat-clubs.webp" alt="Golf Clubs">
-                    <h3 data-key="cat_clubs">Golf Clubs</h3>
-                </a>
-                <a href="shop.html" class="category-card">
-                    <img src="Assets/styles/Images/cat-balls.webp" alt="Golf Balls">
-                    <h3 data-key="cat_balls">Golf Balls</h3>
-                </a>
-                <a href="shop.html" class="category-card">
-                    <img src="Assets/styles/Images/cat-bags.webp" alt="Golf Bags">
-                    <h3 data-key="cat_bags">Golf Bags</h3>
-                </a>
-                <a href="shop.html" class="category-card">
-                    <img src="Assets/styles/Images/product-shirt.webp" alt="Clothing & Rainwear">
-                    <h3 data-key="cat_clothing">Clothing & Rainwear</h3>
-                </a>
-                <a href="shop.html" class="category-card">
-                    <img src="Assets/styles/Images/cat-footwear.webp" alt="Footwear">
-                    <h3 data-key="cat_footwear">Footwear</h3>
-                </a>
-                <a href="shop.html" class="category-card">
-                    <img src="Assets/styles/Images/product-glove-2.webp" alt="Accessories">
-                    <h3 data-key="cat_acc">Accessories</h3>
-                </a>
+        </section>
+        
+        <section class="categories-section">
+            <div class="container">
+                <h2 class="section-title" data-key="sec_categories">Shop by Categories</h2>
+                <div class="categories-grid">
+                    <a href="shop.html?category=clubs" class="category-card">
+                        <img src="Assets/styles/Images/cat-clubs.webp" alt="Golf Clubs">
+                        <h3 data-key="cat_clubs">Golf Clubs</h3>
+                    </a>
+                    <a href="shop.html?category=balls" class="category-card">
+                        <img src="Assets/styles/Images/cat-balls.webp" alt="Golf Balls">
+                        <h3 data-key="cat_balls">Golf Balls</h3>
+                    </a>
+                    <a href="shop.html?category=bags" class="category-card">
+                        <img src="Assets/styles/Images/cat-bags.webp" alt="Golf Bags">
+                        <h3 data-key="cat_bags">Golf Bags</h3>
+                    </a>
+                    <a href="shop.html?category=clothing" class="category-card">
+                        <img src="Assets/styles/Images/product-shirt.webp" alt="Clothing & Rainwear">
+                        <h3 data-key="cat_clothing">Clothing & Rainwear</h3>
+                    </a>
+                    <a href="shop.html?category=footwear" class="category-card">
+                        <img src="Assets/styles/Images/cat-footwear.webp" alt="Footwear">
+                        <h3 data-key="cat_footwear">Footwear</h3>
+                    </a>
+                    <a href="shop.html?category=accessories" class="category-card">
+                        <img src="Assets/styles/Images/product-glove-2.webp" alt="Accessories">
+                        <h3 data-key="cat_acc">Accessories</h3>
+                    </a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="offer-section">
-        <div class="offer-image"></div>
-        <div class="offer-content">
-            <span class="offer-tag" data-key="offer_tag">LIMITED EDITION</span>
-            <h2 class="offer-title" data-key="offer_title">Hurry up! 30% OFF</h2>
-            <p class="offer-description" data-key="offer_desc">Find clubs that are right for your game</p>
-            <div class="countdown-timer">
-                <div class="timer-box"><span id="days" class="timer-value">02</span><span class="timer-label">Days</span></div>
-                <div class="timer-box"><span id="hours" class="timer-value">12</span><span class="timer-label">Hours</span></div>
-                <div class="timer-box"><span id="minutes" class="timer-value">45</span><span class="timer-label">Mins</span></div>
-                <div class="timer-box"><span id="seconds" class="timer-value">05</span><span class="timer-label">Secs</span></div>
-            </div>
-            <a href="shop.html" class="shopping-btn" data-key="btn_shop_now">Shop Now</a>
-        </div>
-    </section>
-    
-    <section class="collection-section">
-        <div class="container">
-            <h2 class="section-title" data-key="sec_collection">Shop Collection</h2>
-            <div class="collection-grid">
-                <div class="collection-card large-card juniors">
-                    <h3>Juniors Set</h3>
-                    <a href="shop.html">Collections &rarr;</a>
+        <section class="offer-section">
+            <div class="offer-image"></div>
+            <div class="offer-content">
+                <span class="offer-tag" data-key="offer_tag">LIMITED EDITION</span>
+                <h2 class="offer-title" data-key="offer_title">Hurry up! 30% OFF</h2>
+                <p class="offer-description" data-key="offer_desc">Find clubs that are right for your game</p>
+                <div class="countdown-timer">
+                    <div class="timer-box"><span id="days" class="timer-value">02</span><span class="timer-label">Days</span></div>
+                    <div class="timer-box"><span id="hours" class="timer-value">12</span><span class="timer-label">Hours</span></div>
+                    <div class="timer-box"><span id="minutes" class="timer-value">45</span><span class="timer-label">Mins</span></div>
+                    <div class="timer-box"><span id="seconds" class="timer-value">05</span><span class="timer-label">Secs</span></div>
                 </div>
-                <div class="collection-card small-card mens">
-                    <h3>Men's Set</h3>
-                    <a href="shop.html">Collections &rarr;</a>
+                <a href="shop.html" class="shopping-btn" data-key="btn_shop_now">Shop Now</a>
+            </div>
+        </section>
+        
+        <section class="collection-section">
+            <div class="container">
+                <h2 class="section-title" data-key="sec_collection">Shop Collection</h2>
+                <div class="collection-grid">
+                    <div class="collection-card large-card juniors">
+                        <h3>Juniors Set</h3>
+                        <a href="shop.html">Collections &rarr;</a>
+                    </div>
+                    <div class="collection-card small-card mens">
+                        <h3>Men's Set</h3>
+                        <a href="shop.html">Collections &rarr;</a>
+                    </div>
+                    <div class="collection-card small-card womens">
+                        <h3>Women's Set</h3>
+                        <a href="shop.html">Collections &rarr;</a>
+                    </div>
                 </div>
-                <div class="collection-card small-card womens">
-                    <h3>Women's Set</h3>
-                    <a href="shop.html">Collections &rarr;</a>
+            </div>
+        </section>
+        
+        <section class="articles-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title" data-key="sec_articles">Latest Articles</h2>
+                    <a href="blog-post.html" class="view-more-link">View More &rarr;</a>
+                </div>
+                <div class="articles-grid" id="articlesGrid"></div>
+            </div>
+        </section>
+        
+        <section class="newsletter-section">
+            <div class="container">
+                <div class="newsletter-content">
+                    <h2 data-key="newsletter_title">Join Our Newsletter</h2>
+                    <p data-key="newsletter_desc">Sign up for deals, new products and promotions</p>
+                </div>
+                <form class="newsletter-form" id="newsletterForm">
+                    <i class="fa-regular fa-envelope"></i>
+                    <input type="email" placeholder="Email address" required>
+                    <button type="submit" id="singBtn" data-key="btn_signup">Signup</button>
+                </form>
+            </div>
+        </section>
+        
+        <section class="instagram-section">
+            <div class="container">
+                <div class="instagram-posts">
+                    <span class="newsfeed-tag">NEWSFEED</span>
+                    <h2 class="section-title">Instagram</h2>
+                    <p>Follow us on social media for more discount & promotions</p>
+                    <a href="#" class="instagram-handle">@3legant_official</a>
+                </div>
+                <div class="instagram-grid">
+                    <img src="Assets/styles/Images/insta-1.webp" alt="Instagram Post 1">
+                    <img src="Assets/styles/Images/insta-2.webp" alt="Instagram Post 2">
+                    <img src="Assets/styles/Images/insta-3.webp" alt="Instagram Post 3">
+                    <img src="Assets/styles/Images/insta-4.webp" alt="Instagram Post 4">
+                    <img src="Assets/styles/Images/insta-5.webp" alt="Instagram Post 5">
+                    <img src="Assets/styles/Images/insta-6.webp" alt="Instagram Post 6">
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <section class="articles-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title" data-key="sec_articles">Latest Articles</h2>
-                <a href="blog-post.html" class="view-more-link">View More &rarr;</a>
-            </div>
-            <div class="articles-grid" id="articlesGrid">
-                </div>
-        </div>
-    </section>
-    
-    <section class="newsletter-section">
-        <div class="container">
-            <div class="background-images">
-                <img src="Assets/styles/Images/glows-back.webp" alt="Golf glove">
-                <img src="Assets/styles/Images/golf-club-back.webp" alt="Golf club">
-            </div>
-            <div class="newsletter-content">
-                <h2 data-key="newsletter_title">Join Our Newsletter</h2>
-                <p data-key="newsletter_desc">Sign up for deals, new products and promotions</p>
-            </div>
-            <form class="newsletter-form" id="newsletterForm">
-                <i class="fa-regular fa-envelope"></i>
-                <input type="email" placeholder="Email address" required>
-                <button type="submit" id="singBtn" data-key="btn_signup">Signup</button>
-            </form>
-        </div>
-    </section>
-    
-    <section class="instagram-section">
-        <div class="container">
-            <div class="instagram-posts">
-                <span class="newsfeed-tag">NEWSFEED</span>
-                <h2 class="section-title">Instagram</h2>
-                <p>Follow us on social media for more discount & promotions</p>
-                <a href="#" class="instagram-handle">@3legant_official</a>
-            </div>
-            <div class="instagram-grid">
-                <img src="Assets/styles/Images/insta-1.webp" alt="Instagram Post 1">
-                <img src="Assets/styles/Images/insta-2.webp" alt="Instagram Post 2">
-                <img src="Assets/styles/Images/insta-3.webp" alt="Instagram Post 3">
-                <img src="Assets/styles/Images/insta-4.webp" alt="Instagram Post 4">
-                <img src="Assets/styles/Images/insta-5.webp" alt="Instagram Post 5">
-                <img src="Assets/styles/Images/insta-6.webp" alt="Instagram Post 6">
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
     
     <footer class="footer">
         <div class="container footer-main">
@@ -237,7 +216,6 @@
                     <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
                 </div>
             </div>
-    
             <div class="footer-col links footer-accordion">
                 <h4 class="accordion-toggle">Page <i class="fa-solid fa-chevron-up"></i></h4>
                 <ul class="accordion-content">
@@ -246,7 +224,6 @@
                     <li><a href="contact.html" data-key="nav_contact">Contact Us</a></li>
                 </ul>
             </div>
-            
             <div class="footer-col links footer-accordion">
                 <h4 class="accordion-toggle">Info <i class="fa-solid fa-chevron-up"></i></h4>
                 <ul class="accordion-content">
@@ -256,7 +233,6 @@
                     <li><a href="#">FAQs</a></li>
                 </ul>
             </div>
-    
             <div class="footer-col office">
                 <h4>Office</h4>
                 <p>43111 Hai Trieu street, District 1, HCMC Vietnam</p>
@@ -287,9 +263,7 @@
                 <span class="close-modal" aria-label="Close modal">&times;</span>
             </div>
             <form class="login-form">
-                <div class="form-group">
-                    <input type="email" placeholder="Email address" required>
-                </div>
+                <div class="form-group"><input type="email" placeholder="Email address" required></div>
                 <div class="form-group">
                     <input type="password" placeholder="Password" required>
                     <button type="button" class="toggle-password" aria-label="Toggle password visibility" style="background:none; border:none; position:absolute; right:0; top:12px; cursor:pointer;">
@@ -297,14 +271,36 @@
                    </button>
                 </div>
                 <div class="form-footer">
-                    <label class="remember-me">
-                        <input type="checkbox"> Remember me
-                    </label>
+                    <label class="remember-me"><input type="checkbox"> Remember me</label>
                     <a href="#" class="forgot-pass">Forgot password?</a>
                 </div>
                 <button type="submit" class="login-btn" data-key="btn_signin">Sign In</button>
             </form>
         </section>
+    </div>
+
+    <div class="cart-overlay" id="cartOverlay">
+        <div class="cart-drawer" id="cartDrawer">
+            <div class="cart-header">
+                <h2>Shopping Cart</h2>
+                <span class="cart-close" id="closeCart">&times;</span>
+            </div>
+            <div class="cart-items" id="cartItemsContainer"></div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total</span>
+                    <span id="cartTotal">$0.00</span>
+                </div>
+                <a href="checkout.html" class="checkout-btn">Checkout</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="searchOverlay" class="search-overlay">
+        <div class="search-box">
+            <span id="closeSearch" class="search-close">&times;</span>
+            <input type="text" id="searchInput" placeholder="Type to search...">
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/easytimer.js@4.5.4/dist/easytimer.min.js"></script>

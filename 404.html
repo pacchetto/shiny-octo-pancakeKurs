@@ -12,15 +12,13 @@
     <section class="header-section">
         <div id="discountPropose" class="discount-propose">
             <div class="ticket-icon"></div>
-            <span key="discount_text">30% off storewide — Limited time! </span>
-            <a href="shop.html">
-                <span>Shop Now</span>
-            </a>
+            <span data-key="discount_text">30% off storewide — Limited time! </span>
+            <a href="shop.html"><span>Shop Now</span></a>
             <i class="fa-solid fa-arrow-right d-none"></i>
             <i id="btnX" class="fa-solid fa-x move-right btnX-marg"></i>
         </div>
         <header class="header d-flex">
-            <div class="content-wrap d-flex w-full justyfy-between">
+            <div class="content-wrap d-flex w-full justify-between">
                 <div class="header-left">
                     <div id="burgerMenu" class="burger-menu">
                         <i id="openIcon" class="fa-solid fa-bars"></i>
@@ -32,23 +30,16 @@
                 </div>    
                 <nav id="headerNav" class="header-nav">
                     <ul class="main-menu">
-                        <li>
-                            <a href="index.html" style="font-weight: 600;" key="nav_home">Home</a>
-                        </li>
-                        
+                        <li><a href="index.html" style="font-weight: 600;" data-key="nav_home">Home</a></li>
                         <li class="dropdown">
-                            <a href="shop.html"><span key="nav_shop">Shop</span> <i class="fa-solid fa-chevron-down"></i></a>
+                            <a href="shop.html"><span data-key="nav_shop">Shop</span> <i class="fa-solid fa-chevron-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="shop.html" key="nav_all">All Products</a></li>
-                                <li><a href="shop.html" key="cat_clothing">T-Shirts</a></li>
-                                <li><a href="shop.html" key="cat_clubs">Clubs</a></li>
-                                <li><a href="shop.html" key="cat_acc">Accessories</a></li>
+                                <li><a href="shop.html" data-key="nav_all">All Products</a></li>
+                                <li><a href="shop.html" data-key="cat_clothing">T-Shirts</a></li>
+                                <li><a href="shop.html" data-key="cat_clubs">Clubs</a></li>
                             </ul>
                         </li>
-                        <li>
-                            <a href="contact.html" key="nav_contact">Contact Us</a>
-                        </li>
-
+                        <li><a href="contact.html" data-key="nav_contact">Contact Us</a></li>
                         <li class="lang-switch-li">
                             <span class="lang-btn active" onclick="changeLanguage('en')">EN</span>
                             <span class="divider">|</span>
@@ -60,21 +51,16 @@
                     </ul>
                 </nav>
                 <div class="bag-with-num">
-                    <div class="search-icon">
-                        <a href="#" class="search-btn"></a>
-                    </div>
-                    <div class="accaunt-icon desktop-only" title="Sign In">
-                        <a href="#" class="uppercase-btn"></a>
-                    </div>
-                    <div class="bag-icon" title="Bag">
-                        <a href="#"></a>
-                    </div>
-                    <div class="num-icon" title="Number of items">
-                        <a href="#"></a>
+                    <div class="search-icon"><a href="#" class="search-btn"></a></div>
+                    <div class="account-icon desktop-only" title="Sign In"><a href="#" class="uppercase-btn"></a></div>
+                    <div class="bag-icon" id="cartIcon" title="Bag">
+                        <a href="javascript:void(0)"></a>
+                        <div class="cart-count-badge" id="cartCount">0</div>
                     </div>
                 </div>
             </div>
         </header>
+
     <section class="error-section">
         <div class="container error-content">
             <h1 class="error-title">404</h1>
@@ -88,23 +74,21 @@
         <div class="container footer-main">
             <div class="footer-col about">
                 <a href="#" class="footer-logo">3legant.</a>
-                <p key="footer_desc">More than just a game. It's a lifestyle.</p>
+                <p data-key="footer_desc">More than just a game. It's a lifestyle.</p>
                 <div class="social-icons">
                     <a href="#"><i class="fa-brands fa-instagram"></i></a>
                     <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="#"><i class="fa-brands fa-youtube"></i></a>
                 </div>
             </div>
-    
             <div class="footer-col links footer-accordion">
                 <h4 class="accordion-toggle">Page <i class="fa-solid fa-chevron-up"></i></h4>
                 <ul class="accordion-content">
-                    <li><a href="index.html" key="nav_home">Home</a></li>
-                    <li><a href="shop.html" key="nav_shop">Shop</a></li>
-                    <li><a href="contact.html" key="nav_contact">Contact Us</a></li>
+                    <li><a href="index.html" data-key="nav_home">Home</a></li>
+                    <li><a href="shop.html" data-key="nav_shop">Shop</a></li>
+                    <li><a href="contact.html" data-key="nav_contact">Contact Us</a></li>
                 </ul>
             </div>
-            
             <div class="footer-col links footer-accordion">
                 <h4 class="accordion-toggle">Info <i class="fa-solid fa-chevron-up"></i></h4>
                 <ul class="accordion-content">
@@ -114,7 +98,6 @@
                     <li><a href="#">FAQs</a></li>
                 </ul>
             </div>
-    
             <div class="footer-col office">
                 <h4>Office</h4>
                 <p>43111 Hai Trieu street, District 1, HCMC Vietnam</p>
@@ -123,49 +106,34 @@
         </div>
         <div class="container footer-bottom">
             <p>Copyright &copy; 2024 3legant. All rights reserved</p>
-            <div class="policy-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms & Conditions</a>
-            </div>
-            <div class="payment-icons">
-                <img src="Assets/styles/Images/visa.webp" alt="Visa">
-                <img src="Assets/styles/Images/american_express.webp" alt="American Express">
-                <img src="Assets/styles/Images/mastercard.webp" alt="Mastercard">
-                <img src="Assets/styles/Images/stripe.webp" alt="Stripe">
-                <img src="Assets/styles/Images/paypal.webp" alt="Paypal">
-                <img src="Assets/styles/Images/apple_pay.webp" alt="Apple Pay">
-            </div>
         </div>
     </footer>
 
-    <div id="loginModal" class="modal-overlay">
-        <section class="modal-content" aria-labelledby="modalTitle">
-            <div class="modal-header">
-                <h2 id="modalTitle" key="modal_title">Sign In</h2>
-                <span class="close-modal" aria-label="Close modal">&times;</span>
+    <div class="cart-overlay" id="cartOverlay">
+        <div class="cart-drawer" id="cartDrawer">
+            <div class="cart-header">
+                <h2>Shopping Cart</h2>
+                <span class="cart-close" id="closeCart">&times;</span>
             </div>
-            <form class="login-form">
-                <div class="form-group">
-                    <input type="email" placeholder="Email address" required>
+            <div class="cart-items" id="cartItemsContainer"></div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total</span>
+                    <span id="cartTotal">$0.00</span>
                 </div>
-                <div class="form-group">
-                    <input type="password" placeholder="Password" required>
-                    <button type="button" class="toggle-password" style="background:none; border:none; position:absolute; right:0; top:12px; cursor:pointer;">
-                        <i class="fa-regular fa-eye show-pass-icon"></i>
-                   </button>
-                </div>
-                <div class="form-footer">
-                    <label class="remember-me">
-                        <input type="checkbox"> Remember me
-                    </label>
-                    <a href="#" class="forgot-pass">Forgot password?</a>
-                </div>
-                <button type="submit" class="login-btn" key="btn_signin">Sign In</button>
-            </form>
-        </section>
+                <a href="checkout.html" class="checkout-btn">Checkout</a>
+            </div>
+        </div>
     </div>
+    
+    <div id="searchOverlay" class="search-overlay">
+        <div class="search-box">
+            <span id="closeSearch" class="search-close">&times;</span>
+            <input type="text" id="searchInput" placeholder="Type to search...">
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/easytimer.js@4.5.4/dist/easytimer.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="Assets/script/script.js"></script>
 </body>
 </html>

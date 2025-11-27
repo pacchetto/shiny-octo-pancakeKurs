@@ -1,52 +1,103 @@
 [
-    {
-      "id": 1,
-      "title": "Shark - Men's cabretta white golf glove",
-      "price": 19.00,
-      "oldPrice": null,
-      "image": "Assets/styles/Images/product-glove.webp",
-      "rating": 5,
-      "badges": ["hot"],
-      "description": "Engineered for high launch and low spin..."
-    },
-    {
-      "id": 2,
-      "title": "Greg Norman - Men's Shark Logo Golf Polo Shirt",
-      "price": 24.99,
-      "oldPrice": 49.99,
-      "image": "Assets/styles/Images/product-shirt.webp",
-      "rating": 4,
-      "badges": ["hot", "sale"],
-      "description": "Engineered for high launch and low spin..."
-    },
-    {
-      "id": 3,
-      "title": "G/FORE - Mens Left Glove Snow 2023",
-      "price": 30.00,
-      "oldPrice": null,
-      "image": "Assets/styles/Images/product-glove-2.webp",
-      "rating": 5,
-      "badges": ["hot"],
-      "description": "Engineered for high launch and low spin..."
-    },
-    {
-      "id": 4,
-      "title": "Utility Rover-R Double Strap Bag All Black",
-      "price": 209.99,
-      "oldPrice": null,
-      "image": "Assets/styles/Images/product-bag.webp",
-      "rating": 4,
-      "badges": ["hot"],
-      "description": "Engineered for high launch and low spin..."
-    },
-    {
-      "id": 5,
-      "title": "G/FORE Men's G.112 P.U. Leather Golf Shoes",
-      "price": 159.99,
-      "oldPrice": null,
-      "image": "Assets/styles/Images/product-shoes.webp",
-      "rating": 4,
-      "badges": ["hot", "sale"],
-      "description": "Engineered for high launch and low spin..."
-    }
-  ]
+  {
+    "id": 1,
+    "title": "Callaway Paradym Driver",
+    "price": 599.99,
+    "oldPrice": 699.99,
+    "rating": 5,
+    "image": "Assets/styles/Images/product-1.webp",
+    "category": "clubs",
+    "badges": ["hot", "sale"],
+    "description": "The Callaway Paradym Driver features a 360° Carbon Chassis to promote unprecedented weight redistribution for maximized distance. Built for golfers of all skill levels seeking a high launch and low spin.",
+    "images": [
+        "Assets/styles/Images/product-1.webp",
+        "Assets/styles/Images/product-1.webp",
+        "Assets/styles/Images/product-1.webp"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "TaylorMade Stealth 2",
+    "price": 499.00,
+    "rating": 4,
+    "image": "Assets/styles/Images/product-2.webp",
+    "category": "clubs",
+    "badges": ["new"],
+    "description": "TaylorMade Stealth 2 driver delivers faster ball speeds with a new 60X Carbon Twist Face. Optimized for forgiveness and stability.",
+    "images": [
+        "Assets/styles/Images/product-2.webp",
+        "Assets/styles/Images/product-2.webp",
+        "Assets/styles/Images/product-2.webp"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Titleist Pro V1 Balls",
+    "price": 54.99,
+    "rating": 5,
+    "image": "Assets/styles/Images/product-3.webp",
+    "category": "balls",
+    "description": "The #1 ball in golf. Titleist Pro V1 offers total performance and features longer distance, very low long game spin, penetrating flight, even more Drop-and-Stop greenside control and softer feel.",
+    "images": [
+        "Assets/styles/Images/product-3.webp",
+        "Assets/styles/Images/product-3.webp",
+        "Assets/styles/Images/product-3.webp"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Nike Air Zoom Victory",
+    "price": 179.99,
+    "rating": 4,
+    "image": "Assets/styles/Images/product-4.webp",
+    "category": "footwear",
+    "description": "The Nike Air Zoom Victory Tour 3 offers robust comfort and energy return for 18 holes. Features a new championship spike design for exceptional traction.",
+    "images": [
+        "Assets/styles/Images/product-4.webp",
+        "Assets/styles/Images/product-4.webp",
+        "Assets/styles/Images/product-4.webp"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "FootJoy Glove",
+    "price": 24.99,
+    "rating": 5,
+    "image": "Assets/styles/Images/product-glove-2.webp",
+    "category": "accessories",
+    "description": "Experience the ultimate in soft feel and grip with the FootJoy StaSof Golf Glove. Crafted from Taction3 Advanced Performance Leather.",
+    "images": [
+        "Assets/styles/Images/product-glove-2.webp",
+        "Assets/styles/Images/product-glove-2.webp",
+        "Assets/styles/Images/product-glove-2.webp"
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Puma Golf Polo",
+    "price": 45.00,
+    "rating": 4,
+    "image": "Assets/styles/Images/product-shirt.webp",
+    "category": "clothing",
+    "description": "Stay cool and comfortable on the course with the Puma Golf Polo. Made with moisture-wicking fabric and a performance fit.",
+    "images": [
+        "Assets/styles/Images/product-shirt.webp",
+        "Assets/styles/Images/product-shirt.webp",
+        "Assets/styles/Images/product-shirt.webp"
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Cobra Aerojet Iron",
+    "price": 129.00,
+    "rating": 5,
+    "image": "Assets/styles/Images/cat-clubs.webp",
+    "category": "clubs",
+    "description": "Cobra Aerojet Irons are designed for distance and forgiveness. Featuring PWR-BRIDGE weighting and PWRSHELL face design.",
+    "images": [
+        "Assets/styles/Images/cat-clubs.webp",
+        "Assets/styles/Images/cat-clubs.webp",
+        "Assets/styles/Images/cat-clubs.webp"
+    ]
+  }
+]
