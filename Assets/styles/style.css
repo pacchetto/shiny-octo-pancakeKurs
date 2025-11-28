@@ -45,18 +45,22 @@ body {
     background: var(--bg-color);
     color: var(--text-color);
     font-family: "Inter", sans-serif;
-    overflow-x: hidden;
 }
 
-.header-section, .header, .articles-section, .contact-card, .map-section iframe, .product-image-container, .category-card img, .checkout-summary, .cart-item img {
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.header-section, .header, .articles-section, .contact-card, .map-section iframe, .checkout-summary{
     background-color: var(--section-bg);
 }
 
 [data-theme="dark"] .search-icon,
 [data-theme="dark"] .account-icon,
 [data-theme="dark"] .bag-icon,
-[data-theme="dark"] .ticket-icon,
-[data-theme="dark"] .logo a {
+[data-theme="dark"] .ticket-icon{
     filter: var(--icon-filter);
 }
 
@@ -218,7 +222,7 @@ img { max-width: 100%; display: block; }
     transform: translateY(100%); transition: transform 0.3s ease-in-out;
 }
 .product-image-container { position: relative; width: 100%; aspect-ratio: 1/1; border-radius: 4px; overflow: hidden; }
-.product-image-container img { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; }
+.product-image-container img { width: 100%; height: 100%; object-fit: contain}
 .product-image-container:hover .add-to-cart-btn { transform: translateY(0); }
 .product-info { padding: 16px 0; }
 .product-rating { color: #FBBF24; margin-bottom: 8px; }
@@ -333,10 +337,10 @@ img { max-width: 100%; display: block; }
 
 /* SHOP PAGE */
 .shop-header-wrap { padding: 20px 20px 40px; }
-.breadcrumbs { font-size: 0.875rem; color: #605F5F; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
-.page-title { font-family: 'Poppins', sans-serif; font-size: 2rem; margin-bottom: 24px; }
+.breadcrumbs { font-size: 0.875rem; color: #605F5F; margin: auto 55px; align-items: center; gap: 8px; }
+.page-title { font-family: 'Poppins', sans-serif; font-size: 2rem; padding: 24px 55px;}
 .shop-controls { display: flex; justify-content: space-between; align-items: center; }
-.shop-container { display: flex; gap: 30px; padding-bottom: 80px; position: relative; }
+.shop-container { display: flex; gap: 30px; padding-bottom: 80px; position: relative; padding: 0px 55px;}
 .shop-sidebar { display: none; }
 .filter-trigger { font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; }
 .filter-group { margin-bottom: 32px; }
