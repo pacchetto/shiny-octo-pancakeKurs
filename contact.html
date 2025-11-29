@@ -19,7 +19,7 @@
             <i class="fa-solid fa-arrow-right d-none"></i>
             <i id="btnX" class="fa-solid fa-x move-right btnX-marg"></i>
         </div>
-        <header class="header d-flex">
+         <header class="header d-flex">
             <div class="content-wrap d-flex w-full justify-between">
                 <div class="header-left">
                     <div id="burgerMenu" class="burger-menu">
@@ -30,6 +30,7 @@
                         <a href="index.html" class="title-color">3legant.</a>
                     </div>
                 </div>    
+                
                 <nav id="headerNav" class="header-nav">
                     <ul class="main-menu">
                         <li><a href="index.html" style="font-weight: 600;" data-key="nav_home">Home</a></li>
@@ -37,8 +38,9 @@
                             <a href="shop.html"><span data-key="nav_shop">Shop</span> <i class="fa-solid fa-chevron-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a href="shop.html" data-key="nav_all">All Products</a></li>
-                                <li><a href="shop.html" data-key="cat_clothing">T-Shirts</a></li>
-                                <li><a href="shop.html" data-key="cat_clubs">Clubs</a></li>
+                                <li><a href="shop.html?category=clothing" data-key="cat_clothing">T-Shirts</a></li>
+                                <li><a href="shop.html?category=clubs" data-key="cat_clubs">Clubs</a></li>
+                                <li><a href="shop.html?category=accessories" data-key="cat_acc">Accessories</a></li>
                             </ul>
                         </li>
                         <li><a href="contact.html" data-key="nav_contact">Contact Us</a></li>
@@ -52,9 +54,10 @@
                         </li>
                     </ul>
                 </nav>
+                
                 <div class="bag-with-num">
-                    <div class="search-icon"><a href="#" class="search-btn"></a></div>
-                    <div class="account-icon" title="Sign In"><a href="#" class="uppercase-btn"></a></div>
+                    <div class="search-icon"><a href="#" class="search-btn" aria-label="Search"></a></div>
+                    <div class="account-icon" title="Sign In"><a href="#" class="uppercase-btn" aria-label="Sign In"></a></div>
                     <div class="bag-icon" id="cartIcon" title="Bag">
                         <a href="javascript:void(0)"></a>
                         <div class="cart-count-badge" id="cartCount">0</div>
@@ -69,8 +72,8 @@
                 <i class="fa-solid fa-chevron-right"></i> 
                 <span>Contact Us</span>
             </div>
-            <h1 class="page-title">We believe in sustainable decor. We’re passionate about life at home.</h1>
-            <p style="color: var(--secondary-text);">Our features timeless furniture, with natural fabrics, curved lines, plenty of mirrors and classic design.</p>
+            <h1 class="page-title" data-key="contact_title">We believe in sustainable decor. We’re passionate about life at home.</h1>
+            <p style="color: var(--secondary-text);" data-key="contact_desc">Our features timeless furniture, with natural fabrics, curved lines, plenty of mirrors and classic design.</p>
         </div>
 
         <section class="contact-section">
@@ -78,18 +81,18 @@
                 <div class="contact-info">
                     <div class="contact-card">
                         <div class="icon-box"><i class="fa-solid fa-store"></i></div>
-                        <h3>Address</h3>
+                        <h3 data-key="addr_title">Address</h3>
                         <p>234 Hai Trieu, Ho Chi Minh City, Viet Nam</p>
                     </div>
                     <div class="contact-card">
                         <div class="icon-box"><i class="fa-solid fa-phone"></i></div>
-                        <h3>Contact Us</h3>
+                        <h3 data-key="contact_us_title">Contact Us</h3>
                         <p>+84 234 567 890</p>
                         <p>hello@3legant.com</p>
                     </div>
                     <div class="contact-card">
                         <div class="icon-box"><i class="fa-solid fa-envelope"></i></div>
-                        <h3>Email</h3>
+                        <h3 data-key="email_title">Email</h3>
                         <p>hello@3legant.com</p>
                     </div>
                 </div>
@@ -98,19 +101,19 @@
                     <form class="contact-form" id="contactForm">
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="name">Full Name</label>
-                                <input type="text" id="name" placeholder="Your Name" required>
+                                <label for="name" data-key="lbl_fullname">Full Name</label>
+                                <input type="text" id="name" placeholder="Your Name" data-key="ph_name" required>
                             </div>
                             <div class="form-group">
-                                <label for="email">Email address</label>
-                                <input type="email" id="email" placeholder="Your Email" required>
+                                <label for="email" data-key="email_title">Email address</label>
+                                <input type="email" id="email" placeholder="Your Email" data-key="ph_email" required>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" rows="5" placeholder="Your message" required></textarea>
+                            <label for="message" data-key="lbl_message">Message</label>
+                            <textarea id="message" rows="5" placeholder="Your message" data-key="ph_message" required></textarea>
                         </div>
-                        <button type="submit" class="shopping-btn">Send Message</button>
+                        <button type="submit" class="shopping-btn" data-key="btn_send">Send Message</button>
                     </form>
                 </div>
             </div>

@@ -21,7 +21,7 @@
             </a>
             <i id="btnX" class="fa-solid fa-x move-right btnX-marg"></i>
         </div>
-        <header class="header d-flex">
+ <header class="header d-flex">
             <div class="content-wrap d-flex w-full justify-between">
                 <div class="header-left">
                     <div id="burgerMenu" class="burger-menu">
@@ -32,6 +32,7 @@
                         <a href="index.html" class="title-color">3legant.</a>
                     </div>
                 </div>    
+                
                 <nav id="headerNav" class="header-nav">
                     <ul class="main-menu">
                         <li><a href="index.html" style="font-weight: 600;" data-key="nav_home">Home</a></li>
@@ -39,8 +40,9 @@
                             <a href="shop.html"><span data-key="nav_shop">Shop</span> <i class="fa-solid fa-chevron-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a href="shop.html" data-key="nav_all">All Products</a></li>
-                                <li><a href="shop.html" data-key="cat_clothing">T-Shirts</a></li>
-                                <li><a href="shop.html" data-key="cat_clubs">Clubs</a></li>
+                                <li><a href="shop.html?category=clothing" data-key="cat_clothing">T-Shirts</a></li>
+                                <li><a href="shop.html?category=clubs" data-key="cat_clubs">Clubs</a></li>
+                                <li><a href="shop.html?category=accessories" data-key="cat_acc">Accessories</a></li>
                             </ul>
                         </li>
                         <li><a href="contact.html" data-key="nav_contact">Contact Us</a></li>
@@ -54,11 +56,14 @@
                         </li>
                     </ul>
                 </nav>
+                
                 <div class="bag-with-num">
-                    <div class="search-icon"><a href="#" class="search-btn"></a></div>
-                    <div class="account-icon"><a href="#" class="uppercase-btn"></a></div>
-                    <div class="bag-icon"><a href="#"></a></div>
-                    <div class="num-icon"><a href="#"></a></div>
+                    <div class="search-icon"><a href="#" class="search-btn" aria-label="Search"></a></div>
+                    <div class="account-icon" title="Sign In"><a href="#" class="uppercase-btn" aria-label="Sign In"></a></div>
+                    <div class="bag-icon" id="cartIcon" title="Bag">
+                        <a href="javascript:void(0)"></a>
+                        <div class="cart-count-badge" id="cartCount">0</div>
+                    </div>
                 </div>
             </div>
         </header>
@@ -103,13 +108,13 @@
                     <div class="option-group">
                         <label for="size-select">Size:</label>
                         <select id="size-select">
-                            <option value="">Select Size</option>
+                            <option value="" data-key="select_size">Select Size</option>
                             <option value="s">S</option>
                             <option value="m">M</option>
                             <option value="l">L</option>
                             <option value="xl">XL</option>
                         </select>
-                        <a href="#" class="size-guide">Size Guide</a>
+                        <a href="404.html" class="size-guide" data-key="size_guide">Size Guide</a>
                     </div>
                 </div>
 
@@ -126,8 +131,8 @@
                 <hr class="product-divider">
 
                 <div class="product-meta">
-                    <p><strong>SKU:</strong> <span id="detailsSku">1117</span></p>
-                    <p><strong>Category:</strong> Golf</p>
+                    <p><strong data-key="sku">SKU:</strong> <span id="detailsSku">1117</span></p>
+                    <p><strong data-key="category">Category:</strong> Golf</p>
                 </div>
                 
                 <div class="product-accordions">
@@ -191,9 +196,9 @@
                 <h4 class="accordion-toggle">Info <i class="fa-solid fa-chevron-up"></i></h4>
                 <ul class="accordion-content">
                     <li><a href="404.html">Shipping Policy</a></li>
-                    <li><a href="#">Return & Refund</a></li>
-                    <li><a href="#">Support</a></li>
-                    <li><a href="#">FAQs</a></li>
+                    <li><a href="404.html"">Return & Refund</a></li>
+                    <li><a href="404.html"">Support</a></li>
+                    <li><a href="404.html"">FAQs</a></li>
                 </ul>
             </div>
     
@@ -206,8 +211,8 @@
         <div class="container footer-bottom">
             <p>Copyright &copy; 2024 3legant. All rights reserved</p>
             <div class="policy-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms & Conditions</a>
+                <a href="404.html"">Privacy Policy</a>
+                <a href="404.html"">Terms & Conditions</a>
             </div>
             <div class="payment-icons">
                 <img src="Assets/styles/Images/visa.webp" alt="Visa">
@@ -250,20 +255,5 @@
     <script src="https://cdn.jsdelivr.net/npm/easytimer.js@4.5.4/dist/easytimer.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="Assets/script/script.js"></script>
-    
-    <script>
-        // Проста логіка для табів (тепер акордеонів)
-        document.querySelectorAll('.accordion-header').forEach(button => {
-            button.addEventListener('click', () => {
-                const accordionContent = button.nextElementSibling;
-                button.classList.toggle('active');
-                if (button.classList.contains('active')) {
-                    accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
-                } else {
-                    accordionContent.style.maxHeight = 0;
-                }
-            });
-        });
-    </script>
 </body>
 </html>

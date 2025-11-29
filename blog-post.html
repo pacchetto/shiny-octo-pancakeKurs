@@ -29,6 +29,7 @@
                         <a href="index.html" class="title-color">3legant.</a>
                     </div>
                 </div>    
+                
                 <nav id="headerNav" class="header-nav">
                     <ul class="main-menu">
                         <li><a href="index.html" style="font-weight: 600;" data-key="nav_home">Home</a></li>
@@ -36,8 +37,9 @@
                             <a href="shop.html"><span data-key="nav_shop">Shop</span> <i class="fa-solid fa-chevron-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a href="shop.html" data-key="nav_all">All Products</a></li>
-                                <li><a href="shop.html" data-key="cat_clothing">T-Shirts</a></li>
-                                <li><a href="shop.html" data-key="cat_clubs">Clubs</a></li>
+                                <li><a href="shop.html?category=clothing" data-key="cat_clothing">T-Shirts</a></li>
+                                <li><a href="shop.html?category=clubs" data-key="cat_clubs">Clubs</a></li>
+                                <li><a href="shop.html?category=accessories" data-key="cat_acc">Accessories</a></li>
                             </ul>
                         </li>
                         <li><a href="contact.html" data-key="nav_contact">Contact Us</a></li>
@@ -51,9 +53,10 @@
                         </li>
                     </ul>
                 </nav>
+                
                 <div class="bag-with-num">
-                    <div class="search-icon"><a href="#" class="search-btn"></a></div>
-                    <div class="account-icon" title="Sign In"><a href="#" class="uppercase-btn"></a></div>
+                    <div class="search-icon"><a href="#" class="search-btn" aria-label="Search"></a></div>
+                    <div class="account-icon" title="Sign In"><a href="#" class="uppercase-btn" aria-label="Sign In"></a></div>
                     <div class="bag-icon" id="cartIcon" title="Bag">
                         <a href="javascript:void(0)"></a>
                         <div class="cart-count-badge" id="cartCount">0</div>

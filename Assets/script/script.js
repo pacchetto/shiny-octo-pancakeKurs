@@ -5,78 +5,220 @@ document.addEventListener('DOMContentLoaded', function() {
     // =========================================
     const translations = {
         'en': {
+            // Header & Nav
             'discount_text': '30% off storewide — Limited time!',
             'nav_home': 'Home',
             'nav_shop': 'Shop',
-            'nav_product': 'Product',
             'nav_all': 'All Products',
             'nav_contact': 'Contact Us',
             'nav_blog': 'Blog',
+            'btn_shop_now': 'Shop Now',
+            'btn_signin': 'Sign In',
+            
+            // Hero & Sections
             'hero_title': 'More than<br>just a game.<br>It\'s a lifestyle.',
             'hero_desc': "Whether you're just starting out, have played your whole life or you're a Tour pro, your swing is like a fingerprint.",
-            'btn_shop_now': 'Shopping Now',
             'sec_featured': 'Featured',
             'sec_categories': 'Shop by Categories',
             'sec_collection': 'Shop Collection',
             'sec_articles': 'Latest Articles',
+            
+            // Offer & Newsletter
             'offer_tag': 'LIMITED EDITION',
             'offer_title': 'Hurry up! 30% OFF',
             'offer_desc': 'Find clubs that are right for your game',
             'newsletter_title': 'Join Our Newsletter',
             'newsletter_desc': 'Sign up for deals, new products and promotions',
             'btn_signup': 'Signup',
-            'footer_desc': "More than just a game. It's a lifestyle.",
+            
+            // Categories
             'cat_clubs': 'Golf Clubs',
             'cat_balls': 'Golf Balls',
             'cat_bags': 'Golf Bags',
             'cat_clothing': 'Clothing & Rainwear',
             'cat_footwear': 'Footwear',
             'cat_acc': 'Accessories',
+            
+            // Product Details
             'btn_add_cart': 'Add to cart',
-            'modal_title': 'Sign In',
-            'btn_signin': 'Sign In',
             'related_products': 'You might also like',
             'delivery_returns': 'Delivery & Returns',
             'delivery_info': 'Free delivery for orders over $100. Returns within 30 days.',
             'material_care': 'Material & Care',
-            'material_care_info': '100% Cotton. Machine wash cold, do not bleach, tumble dry low.'
+            'material_care_info': '100% Cotton. Machine wash cold, do not bleach, tumble dry low.',
+            'select_size': 'Select Size',
+            'size_guide': 'Size Guide',
+            'sku': 'SKU:',
+            'category': 'Category:',
+            'reviews': '(Reviews)',
+
+            // Cart & Modal
+            'modal_title': 'Sign In',
+            'cart_title': 'Shopping Cart',
+            'cart_total': 'Total',
+            'cart_checkout': 'Checkout',
+            'cart_empty': 'Your cart is empty',
+            'remove': 'Remove',
+            'secure_payment': 'Secure Payment',
+
+            // Form Placeholders & Labels (NEW)
+            'ph_email': 'Email address',
+            'ph_pass': 'Password',
+            'ph_name': 'Your Name',
+            'ph_search': 'Type to search...',
+            'lbl_remember': 'Remember me',
+            'lbl_forgot': 'Forgot password?',
+            
+            // Contact Page
+            'contact_title': 'We believe in sustainable decor. We’re passionate about life at home.',
+            'contact_desc': 'Our features timeless furniture, with natural fabrics, curved lines, plenty of mirrors and classic design.',
+            'addr_title': 'Address',
+            'contact_us_title': 'Contact Us',
+            'email_title': 'Email',
+            'lbl_fullname': 'Full Name',
+            'lbl_message': 'Message',
+            'ph_message': 'Your message',
+            'btn_send': 'Send Message',
+
+            // Checkout Page
+            'co_shipping_title': 'Shipping Address',
+            'lbl_fname': 'First Name *',
+            'lbl_lname': 'Last Name *',
+            'lbl_street': 'Street Address *',
+            'lbl_city': 'City *',
+            'lbl_zip': 'Zip Code *',
+            'lbl_phone': 'Phone Number *',
+            'co_payment_title': 'Payment Details',
+            'lbl_card_num': 'Card Number *',
+            'lbl_exp': 'Expiry Date *',
+            'lbl_cvc': 'CVC *',
+            'btn_place_order': 'Place Order',
+            'lbl_subtotal': 'Subtotal',
+            'lbl_shipping': 'Shipping',
+            'txt_free': 'Free',
+            'return_shop': 'Return to Shop',
+            'order_summary': 'Order Summary',
+
+            // 404 Page
+            '404_subtitle': 'Page Not Found',
+            '404_text': 'The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.',
+            'btn_home': 'Go to Home',
+
+            // Footer
+            'footer_desc': "More than just a game. It's a lifestyle.",
+            'footer_page': 'Page',
+            'footer_info': 'Info',
+            'footer_office': 'Office',
+            'policy_privacy': 'Privacy Policy',
+            'policy_terms': 'Terms & Conditions'
         },
         'uk': {
+            // Header & Nav
             'discount_text': 'Знижка 30% на все — Тільки зараз!',
             'nav_home': 'Головна',
             'nav_shop': 'Магазин',
-            'nav_product': 'Товар',
             'nav_all': 'Всі товари',
             'nav_contact': 'Контакти',
             'nav_blog': 'Блог',
+            'btn_shop_now': 'Купити зараз',
+            'btn_signin': 'Увійти',
+            
+            // Hero & Sections
             'hero_title': 'Більше ніж<br>просто гра.<br>Це стиль життя.',
             'hero_desc': 'Незалежно від того, чи ви тільки починаєте, граєте все життя або ви профі — ваш удар унікальний, як відбиток пальця.',
-            'btn_shop_now': 'Купити зараз',
             'sec_featured': 'Хіти продажу',
             'sec_categories': 'Категорії',
             'sec_collection': 'Колекції',
             'sec_articles': 'Останні статті',
+            
+            // Offer & Newsletter
             'offer_tag': 'ЛІМІТОВАНА СЕРІЯ',
             'offer_title': 'Поспішай! Знижка 30%',
             'offer_desc': 'Знайдіть ключки, що підходять саме для вашої гри',
             'newsletter_title': 'Підпишись на новини',
             'newsletter_desc': 'Отримуйте знижки, новинки та акції',
             'btn_signup': 'Підписатись',
-            'footer_desc': 'Більше ніж просто гра. Це стиль життя.',
+            
+            // Categories
             'cat_clubs': 'Ключки',
             'cat_balls': 'М\'ячі',
             'cat_bags': 'Сумки',
             'cat_clothing': 'Одяг',
             'cat_footwear': 'Взуття',
             'cat_acc': 'Аксесуари',
+            
+            // Product Details
             'btn_add_cart': 'В кошик',
-            'modal_title': 'Вхід',
-            'btn_signin': 'Увійти',
             'related_products': 'Вам може сподобатись',
             'delivery_returns': 'Доставка та Повернення',
             'delivery_info': 'Безкоштовна доставка від $100. Повернення протягом 30 днів.',
             'material_care': 'Матеріали та Догляд',
-            'material_care_info': '100% Бавовна. Машинне прання в холодній воді, не відбілювати.'
+            'material_care_info': '100% Бавовна. Машинне прання в холодній воді, не відбілювати.',
+            'select_size': 'Оберіть розмір',
+            'size_guide': 'Таблиця розмірів',
+            'sku': 'Артикул:',
+            'category': 'Категорія:',
+            'reviews': '(Відгуки)',
+
+            // Cart & Modal
+            'modal_title': 'Вхід',
+            'cart_title': 'Кошик',
+            'cart_total': 'Разом',
+            'cart_checkout': 'Оформити',
+            'cart_empty': 'Кошик порожній',
+            'remove': 'Видалити',
+            'secure_payment': 'Безпечна оплата',
+
+            // Form Placeholders & Labels
+            'ph_email': 'Ваш Email',
+            'ph_pass': 'Пароль',
+            'ph_name': 'Ваше ім\'я',
+            'ph_search': 'Пошук...',
+            'lbl_remember': 'Запам\'ятати мене',
+            'lbl_forgot': 'Забули пароль?',
+            
+            // Contact Page
+            'contact_title': 'Ми віримо в екологічний декор. Ми закохані в життя вдома.',
+            'contact_desc': 'Наші особливості: вічні меблі, натуральні тканини, плавні лінії та класичний дизайн.',
+            'addr_title': 'Адреса',
+            'contact_us_title': 'Зв\'яжіться з нами',
+            'email_title': 'Email',
+            'lbl_fullname': 'ПІБ',
+            'lbl_message': 'Повідомлення',
+            'ph_message': 'Ваше повідомлення',
+            'btn_send': 'Надіслати',
+
+            // Checkout Page
+            'co_shipping_title': 'Адреса доставки',
+            'lbl_fname': 'Ім\'я *',
+            'lbl_lname': 'Прізвище *',
+            'lbl_street': 'Вулиця, будинок *',
+            'lbl_city': 'Місто *',
+            'lbl_zip': 'Індекс *',
+            'lbl_phone': 'Телефон *',
+            'co_payment_title': 'Оплата',
+            'lbl_card_num': 'Номер картки *',
+            'lbl_exp': 'Термін дії *',
+            'lbl_cvc': 'CVV *',
+            'btn_place_order': 'Замовити',
+            'lbl_subtotal': 'Підсумок',
+            'lbl_shipping': 'Доставка',
+            'txt_free': 'Безкоштовно',
+            'return_shop': 'Назад до магазину',
+            'order_summary': 'Ваше замовлення',
+
+            // 404 Page
+            '404_subtitle': 'Сторінку не знайдено',
+            '404_text': 'Сторінка, яку ви шукаєте, можливо була видалена, змінила назву або тимчасово недоступна.',
+            'btn_home': 'На Головну',
+
+            // Footer
+            'footer_desc': 'Більше ніж просто гра. Це стиль життя.',
+            'footer_page': 'Сторінки',
+            'footer_info': 'Інфо',
+            'footer_office': 'Офіс',
+            'policy_privacy': 'Політика конфіденційності',
+            'policy_terms': 'Умови використання'
         }
     };
 
@@ -94,7 +236,12 @@ document.addEventListener('DOMContentLoaded', function() {
         elements.forEach(el => {
             const key = el.dataset.key;
             if (translations[lang] && translations[lang][key]) {
-                el.innerHTML = translations[lang][key];
+                // Перевіряємо, чи це інпут (для placeholder)
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = translations[lang][key];
+                } else {
+                    el.innerHTML = translations[lang][key];
+                }
             }
         });
 
@@ -103,7 +250,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         loadProducts(); // Оновлюємо товари (якщо треба перекласти щось динамічне)
     };
-
     const savedLang = localStorage.getItem('selectedLang') || 'en';
     changeLanguage(savedLang);
 
