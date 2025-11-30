@@ -345,7 +345,7 @@ img { max-width: 100%; display: block; }
 
 /* OFFER */
 .offer-section { display: flex; flex-direction: column; background-color: #141718; color: #FFFFFF; }
-.offer-image { flex: 1; min-height: 300px; background-image: url('Images/offer-bg.webp'); background-size: cover; background-position: center; }
+.offer-image { flex: 1; min-height: 300px; background-image: url('images/offer-bg.webp'); background-size: cover; background-position: center; }
 .offer-content { flex: 1; padding: 40px 20px; display: flex; flex-direction: column; justify-content: center; }
 .offer-section .shopping-btn { display: inline-flex; width: 200px; height: 40px; justify-content: center; align-items: center; }
 .offer-tag { font-size: 0.875rem; font-weight: bold; color: var(--main-btn-color); }
@@ -366,9 +366,9 @@ img { max-width: 100%; display: block; }
 .collection-card h3 { font-size: 1.5rem; font-family: 'Montserrat', sans-serif; } /* Змінено */
 .collection-card a { text-decoration: underline; font-weight: 600; }
 .large-card { grid-row: span 2; }
-.juniors { background-image: url('Images/collection-juniors.webp'); background-position: center 30%; }
-.mens { background-image: url('Images/collection-mens.webp'); background-position: center top; }
-.womens { background-image: url('Images/collection-womens.webp'); background-position: center top; }
+.juniors { background-image: url('images/collection-juniors.webp'); background-position: center 30%; }
+.mens { background-image: url('images/collection-mens.webp'); background-position: center top; }
+.womens { background-image: url('images/collection-womens.webp'); background-position: center top; }
 
 /* ARTICLES */
 .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
@@ -555,7 +555,7 @@ img { max-width: 100%; display: block; }
     .burger-menu { display: none; }
     .header-nav { display: flex; }
     .desktop-only { display: block; }
-    .hero-image { background-image: url('Images/golf_club.webp'); }
+    .hero-image { background-image: url('images/golf_club.webp'); }
     .hero-content { margin: 196px 172px; width: auto; max-width: 500px; text-align: left; }
     .hero-content h1 { font-size: 4.5rem; }
     .hero-content p{ padding-right: 125px; }
