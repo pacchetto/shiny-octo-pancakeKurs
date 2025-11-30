@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'remove': 'Remove',
             'secure_payment': 'Secure Payment',
 
-            // Form Placeholders & Labels (NEW)
+            // Form Placeholders & Labels
             'ph_email': 'Email address',
             'ph_pass': 'Password',
             'ph_name': 'Your Name',
@@ -236,7 +236,6 @@ document.addEventListener('DOMContentLoaded', function() {
         elements.forEach(el => {
             const key = el.dataset.key;
             if (translations[lang] && translations[lang][key]) {
-                // Перевіряємо, чи це інпут (для placeholder)
                 if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
                     el.placeholder = translations[lang][key];
                 } else {
@@ -245,11 +244,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // Також оновлюємо атрибут lang у html
         document.documentElement.lang = lang;
-        
-        loadProducts(); // Оновлюємо товари (якщо треба перекласти щось динамічне)
+        loadProducts(); // Refresh products if needed
     };
+
     const savedLang = localStorage.getItem('selectedLang') || 'en';
     changeLanguage(savedLang);
 
@@ -309,31 +307,44 @@ document.addEventListener('DOMContentLoaded', function() {
         if (currentTheme === 'dark') {
             body.setAttribute('data-theme', 'light');
             localStorage.setItem('theme', 'light');
-            if(icon) icon.className = 'fa-regular fa-moon';
+            if(icon) {
+                icon.classList.remove('sun-icon-bg');
+                icon.classList.add('moon-icon-bg');
+            }
         } else {
             body.setAttribute('data-theme', 'dark');
             localStorage.setItem('theme', 'dark');
-            if(icon) icon.className = 'fa-regular fa-sun';
+            if(icon) {
+                icon.classList.remove('moon-icon-bg');
+                icon.classList.add('sun-icon-bg');
+            }
         }
     };
 
+    // Init Theme on Load
     const savedTheme = localStorage.getItem('theme');
     const icon = document.getElementById('themeIcon');
     if (savedTheme === 'dark') {
         document.body.setAttribute('data-theme', 'dark');
-        if(icon) icon.className = 'fa-regular fa-sun';
+        if(icon) {
+            icon.classList.remove('moon-icon-bg');
+            icon.classList.add('sun-icon-bg');
+        }
+    } else {
+        if(icon) {
+            icon.classList.add('moon-icon-bg');
+        }
     }
 
     // =========================================
     // 3. LOGIN MODAL LOGIC
     // =========================================
     const modal = document.getElementById('loginModal');
-    const loginBtns = document.querySelectorAll('.account-icon, .uppercase-btn'); // Об'єднав селектори
+    const loginBtns = document.querySelectorAll('.account-icon, .uppercase-btn'); 
     const closeModal = document.querySelector('.close-modal');
     const passwordToggleBtn = document.querySelector('.toggle-password');
 
     if (modal) {
-        // Делегування подій, якщо кнопок кілька
         document.body.addEventListener('click', (e) => {
             if (e.target.closest('.account-icon') || e.target.closest('.uppercase-btn')) {
                 e.preventDefault();
@@ -375,7 +386,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // =========================================
-    // 4. LOAD PRODUCTS (Updated with Filters)
+    // 4. LOAD PRODUCTS (Updated with Filters & Load More)
     // =========================================
     async function loadProducts() {
         const homeGrid = document.getElementById('productsGrid'); 
@@ -412,7 +423,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 if (search) {
                     productsToShow = products.filter(p => p.title.toLowerCase().includes(search.toLowerCase()));
-                    // Оновлюємо заголовок сторінки при пошуку
                     const pageTitle = document.querySelector('.page-title');
                     if (pageTitle) pageTitle.innerText = `Search results: "${search}"`;
                 }
@@ -422,15 +432,15 @@ document.addEventListener('DOMContentLoaded', function() {
                     return;
                 }
             } else if (isRelated) {
-                // Для слайдера related беремо перші 5 (або випадкові)
                 productsToShow = products.slice(0, 5);
             }
-            // ----------------------------------------
 
+            // --- RENDER PRODUCTS ---
             productsToShow.forEach(product => {
                 let starsHTML = '';
                 for(let i=0; i<5; i++) {
-                    starsHTML += i < product.rating ? '<i class="fa-solid fa-star"></i>' : '<i class="fa-regular fa-star"></i>';
+                    // Виправлено: Текстові зірки замість FontAwesome
+                    starsHTML += i < product.rating ? '★' : '☆';
                 }
 
                 let badgesHTML = '';
@@ -475,8 +485,35 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
 
+            // === LOAD MORE LOGIC (В СЕРЕДИНІ TRY БЛОКУ) ===
+            if (shopGrid) {
+                const loadMoreContainer = document.getElementById('loadMoreContainer');
+                const loadMoreBtn = document.getElementById('loadMoreBtn');
+                
+                // Перевірка: якщо товарів більше 6
+                if (productsToShow.length > 6 && loadMoreContainer && loadMoreBtn) {
+                    
+                    loadMoreContainer.style.display = 'block';
+                    
+                    const cards = targetGrid.querySelectorAll('.product-card');
+                    
+                    // Ховаємо товари, починаючи з 7-го (індекс 6)
+                    cards.forEach((card, index) => {
+                        if (index >= 6) card.style.display = 'none';
+                    });
+
+                    loadMoreBtn.onclick = () => {
+                        cards.forEach(card => card.style.display = 'flex');
+                        loadMoreContainer.style.display = 'none';
+                    };
+                } else if (loadMoreContainer) {
+                    // Якщо товарів 6 або менше — ховаємо кнопку
+                    loadMoreContainer.style.display = 'none';
+                }
+            }
+            // ==============================================
+
             if (isHome || isRelated) {
-                // Перевірка, чи Swiper вже ініціалізовано, щоб уникнути помилок
                 if (targetGrid.parentElement.swiper) {
                     targetGrid.parentElement.swiper.destroy(true, true);
                 }
@@ -574,7 +611,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Акордеони на сторінці продукту
     const prodAccordions = document.querySelectorAll('.product-accordions .accordion-header');
     if(prodAccordions) {
         prodAccordions.forEach(acc => {
@@ -647,7 +683,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const ratingContainer = document.getElementById('detailsRating');
             if(ratingContainer) {
                 let stars = '';
-                for(let i=0; i<5; i++) stars += i < product.rating ? '<i class="fa-solid fa-star"></i>' : '<i class="fa-regular fa-star"></i>';
+                // Виправлено: Текстові зірки
+                for(let i=0; i<5; i++) stars += i < product.rating ? '★' : '☆';
                 ratingContainer.innerHTML = stars + `<span style="color: var(--secondary-text); font-size: 0.8rem; margin-left: 8px;">(Reviews)</span>`;
             }
 
@@ -679,7 +716,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // 8. INTERACTIVE ELEMENTS
     // =========================================
     
-    // Wishlist Button
     const wishlistBtn = document.querySelector('.wishlist-btn');
     if (wishlistBtn) {
         wishlistBtn.addEventListener('click', function() {
@@ -697,7 +733,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Counter
     const minusBtn = document.querySelector('.qty-btn.minus');
     const plusBtn = document.querySelector('.qty-btn.plus');
     const qtyInput = document.querySelector('.qty-input');

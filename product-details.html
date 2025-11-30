@@ -18,12 +18,13 @@
             </a>
             <i id="btnX" class="fa-solid fa-x move-right btnX-marg"></i>
         </div>
- <header class="header d-flex">
+        <header class="header d-flex">
             <div class="content-wrap d-flex w-full justify-between">
                 <div class="header-left">
                     <div id="burgerMenu" class="burger-menu">
-                        <i id="openIcon" class="fa-solid fa-bars"></i>
-                        <i id="closeIcon" class="fa-solid fa-xmark d-none"></i>
+                        <span id="openIcon" class="icon-btn menu-icon-bg"></span>
+                        
+                        <span id="closeIcon" class="icon-btn close-icon-bg d-none"></span>
                     </div>
                     <div class="logo">
                         <a href="index.html" class="title-color">3legant.</a>
@@ -34,7 +35,8 @@
                     <ul class="main-menu">
                         <li><a href="index.html" style="font-weight: 600;" data-key="nav_home">Home</a></li>
                         <li class="dropdown">
-                            <a href="shop.html"><span data-key="nav_shop">Shop</span> <i class="fa-solid fa-chevron-down"></i></a>
+                            <a href="shop.html"><span data-key="nav_shop">Shop</span>
+                            <span class="icon-btn chevron-icon-bg" style="width: 12px; height: 12px; margin-left: 5px;"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="shop.html" data-key="nav_all">All Products</a></li>
                                 <li><a href="shop.html?category=clothing" data-key="cat_clothing">T-Shirts</a></li>
@@ -49,7 +51,7 @@
                             <span class="lang-btn" onclick="changeLanguage('uk')">UA</span>
                         </li>
                         <li class="theme-toggle" onclick="toggleTheme()">
-                            <i class="fa-regular fa-moon" id="themeIcon"></i>
+                            <span id="themeIcon" class="icon-btn moon-icon-bg"></span>
                         </li>
                     </ul>
                 </nav>
@@ -81,7 +83,6 @@
             <div class="product-gallery-wrapper"> <div class="thumbnails"> </div>
                 <div class="main-image">
                     <img id="mainImg" src="" alt="Main Product" style="min-height: 400px; background: #f3f5f7;">
-                    <span class="badge hot" style="top: 20px; left: 20px;">HOT</span>
                 </div>
             </div>
 
@@ -174,50 +175,57 @@
                 <a href="#" class="footer-logo">3legant.</a>
                 <p data-key="footer_desc">More than just a game. It's a lifestyle.</p>
                 <div class="social-icons">
-                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="404.html" aria-label="Instagram"><span class="icon-btn insta-icon-bg"></span></a>
+                    <a href="404.html" aria-label="Facebook"><span class="icon-btn fb-icon-bg"></span></a>
+                    <a href="404.html" aria-label="YouTube"><span class="icon-btn yt-icon-bg"></span></a>
                 </div>
             </div>
-    
+            
             <div class="footer-col links footer-accordion">
-                <h4 class="accordion-toggle">Page <i class="fa-solid fa-chevron-up"></i></h4>
+                <h4 class="accordion-toggle">
+                    <span data-key="footer_page">Page</span>
+                    <span class="icon-btn chevron-icon-bg"></span>
+                </h4>
                 <ul class="accordion-content">
                     <li><a href="index.html" data-key="nav_home">Home</a></li>
                     <li><a href="shop.html" data-key="nav_shop">Shop</a></li>
                     <li><a href="contact.html" data-key="nav_contact">Contact Us</a></li>
                 </ul>
             </div>
-            
+
             <div class="footer-col links footer-accordion">
-                <h4 class="accordion-toggle">Info <i class="fa-solid fa-chevron-up"></i></h4>
+                <h4 class="accordion-toggle">
+                    <span data-key="footer_info">Info</span>
+                    <span class="icon-btn chevron-icon-bg"></span>
+                </h4>
                 <ul class="accordion-content">
                     <li><a href="404.html">Shipping Policy</a></li>
-                    <li><a href="404.html"">Return & Refund</a></li>
-                    <li><a href="404.html"">Support</a></li>
-                    <li><a href="404.html"">FAQs</a></li>
+                    <li><a href="404.html">Return & Refund</a></li>
+                    <li><a href="404.html">Support</a></li>
+                    <li><a href="404.html">FAQs</a></li>
                 </ul>
             </div>
-    
+
             <div class="footer-col office">
-                <h4>Office</h4>
+                <h4 data-key="footer_office">Office</h4>
                 <p>43111 Hai Trieu street, District 1, HCMC Vietnam</p>
                 <p>84-756-3237</p>
             </div>
         </div>
+        
         <div class="container footer-bottom">
             <p>Copyright &copy; 2024 3legant. All rights reserved</p>
             <div class="policy-links">
-                <a href="404.html"">Privacy Policy</a>
-                <a href="404.html"">Terms & Conditions</a>
+                <a href="404.html" data-key="policy_privacy">Privacy Policy</a>
+                <a href="404.html" data-key="policy_terms">Terms & Conditions</a>
             </div>
             <div class="payment-icons">
-                <img src="assets/styles/Images/visa.webp" alt="Visa">
-                <img src="assets/styles/Images/american_express.webp" alt="American Express">
-                <img src="assets/styles/Images/mastercard.webp" alt="Mastercard">
-                <img src="assets/styles/Images/stripe.webp" alt="Stripe">
-                <img src="assets/styles/Images/paypal.webp" alt="Paypal">
-                <img src="assets/styles/Images/apple_pay.webp" alt="Apple Pay">
+                <img src="assets/styles/images/visa.webp" alt="Visa">
+                <img src="assets/styles/images/american_express.webp" alt="American Express">
+                <img src="assets/styles/images/mastercard.webp" alt="Mastercard">
+                <img src="assets/styles/images/stripe.webp" alt="Stripe">
+                <img src="assets/styles/images/paypal.webp" alt="Paypal">
+                <img src="assets/styles/images/apple_pay.webp" alt="Apple Pay">
             </div>
         </div>
     </footer>

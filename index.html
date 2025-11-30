@@ -8,9 +8,17 @@
     <title>Golf Store - 3legant</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="assets/styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <a href="#" id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll to top"><i class="fa-solid fa-arrow-up"></i></a>
+    <a href="#" id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll to top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="19" x2="12" y2="5"></line>
+            <polyline points="5 12 12 5 19 12"></polyline>
+        </svg>
+    </a>
 
     <div class="header-wrapper">
         <div id="discountPropose" class="discount-propose">
@@ -18,15 +26,16 @@
             <span data-key="discount_text">30% off storewide — Limited time! </span>
             <a href="shop.html"><span data-key="btn_shop_now">Shop Now</span></a>
             <i class="fa-solid fa-arrow-right d-none"></i>
-            <i id="btnX" class="fa-solid fa-x move-right btnX-marg" tabindex="0" role="button" aria-label="Close"></i>
+            <span id="btnX" class="icon-btn close-icon-bg move-right btnX-marg" role="button" aria-label="Close"></span>
         </div>
         
         <header class="header d-flex">
             <div class="content-wrap d-flex w-full justify-between">
                 <div class="header-left">
                     <div id="burgerMenu" class="burger-menu">
-                        <i id="openIcon" class="fa-solid fa-bars"></i>
-                        <i id="closeIcon" class="fa-solid fa-xmark d-none"></i>
+                        <span id="openIcon" class="icon-btn menu-icon-bg"></span>
+                        
+                        <span id="closeIcon" class="icon-btn close-icon-bg d-none"></span>
                     </div>
                     <div class="logo">
                         <a href="index.html" class="title-color">3legant.</a>
@@ -37,7 +46,8 @@
                     <ul class="main-menu">
                         <li><a href="index.html" style="font-weight: 600;" data-key="nav_home">Home</a></li>
                         <li class="dropdown">
-                            <a href="shop.html"><span data-key="nav_shop">Shop</span> <i class="fa-solid fa-chevron-down"></i></a>
+                            <a href="shop.html"><span data-key="nav_shop">Shop</span>
+                            <span class="icon-btn chevron-icon-bg" style="width: 12px; height: 12px; margin-left: 5px;"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="shop.html" data-key="nav_all">All Products</a></li>
                                 <li><a href="shop.html?category=clothing" data-key="cat_clothing">T-Shirts</a></li>
@@ -52,7 +62,7 @@
                             <span class="lang-btn" onclick="changeLanguage('uk')">UA</span>
                         </li>
                         <li class="theme-toggle" onclick="toggleTheme()">
-                            <i class="fa-regular fa-moon" id="themeIcon"></i>
+                            <span id="themeIcon" class="icon-btn moon-icon-bg"></span>
                         </li>
                     </ul>
                 </nav>
@@ -221,21 +231,29 @@
                 <a href="#" class="footer-logo">3legant.</a>
                 <p data-key="footer_desc">More than just a game. It's a lifestyle.</p>
                 <div class="social-icons">
-                    <a href="404.html" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="404.html" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="404.html" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="404.html" aria-label="Instagram"><span class="icon-btn insta-icon-bg"></span></a>
+                    <a href="404.html" aria-label="Facebook"><span class="icon-btn fb-icon-bg"></span></a>
+                    <a href="404.html" aria-label="YouTube"><span class="icon-btn yt-icon-bg"></span></a>
                 </div>
             </div>
+            
             <div class="footer-col links footer-accordion">
-                <h4 class="accordion-toggle"<span data-key="footer_page">Page</span> <i class="fa-solid fa-chevron-up"></i></h4>
+                <h4 class="accordion-toggle">
+                    <span data-key="footer_page">Page</span>
+                    <span class="icon-btn chevron-icon-bg"></span>
+                </h4>
                 <ul class="accordion-content">
                     <li><a href="index.html" data-key="nav_home">Home</a></li>
                     <li><a href="shop.html" data-key="nav_shop">Shop</a></li>
                     <li><a href="contact.html" data-key="nav_contact">Contact Us</a></li>
                 </ul>
             </div>
+
             <div class="footer-col links footer-accordion">
-                <h4 class="accordion-toggle"><span data-key="footer_info">Info</span> <i class="fa-solid fa-chevron-up"></i></h4>
+                <h4 class="accordion-toggle">
+                    <span data-key="footer_info">Info</span>
+                    <span class="icon-btn chevron-icon-bg"></span>
+                </h4>
                 <ul class="accordion-content">
                     <li><a href="404.html">Shipping Policy</a></li>
                     <li><a href="404.html">Return & Refund</a></li>
@@ -243,25 +261,27 @@
                     <li><a href="404.html">FAQs</a></li>
                 </ul>
             </div>
+
             <div class="footer-col office">
                 <h4 data-key="footer_office">Office</h4>
                 <p>43111 Hai Trieu street, District 1, HCMC Vietnam</p>
                 <p>84-756-3237</p>
             </div>
         </div>
+        
         <div class="container footer-bottom">
             <p>Copyright &copy; 2024 3legant. All rights reserved</p>
             <div class="policy-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms & Conditions</a>
+                <a href="404.html" data-key="policy_privacy">Privacy Policy</a>
+                <a href="404.html" data-key="policy_terms">Terms & Conditions</a>
             </div>
             <div class="payment-icons">
-                <img src="assets/styles/Images/visa.webp" alt="Visa">
-                <img src="assets/styles/Images/american_express.webp" alt="American Express">
-                <img src="assets/styles/Images/mastercard.webp" alt="Mastercard">
-                <img src="assets/styles/Images/stripe.webp" alt="Stripe">
-                <img src="assets/styles/Images/paypal.webp" alt="Paypal">
-                <img src="assets/styles/Images/apple_pay.webp" alt="Apple Pay">
+                <img src="assets/styles/images/visa.webp" alt="Visa">
+                <img src="assets/styles/images/american_express.webp" alt="American Express">
+                <img src="assets/styles/images/mastercard.webp" alt="Mastercard">
+                <img src="assets/styles/images/stripe.webp" alt="Stripe">
+                <img src="assets/styles/images/paypal.webp" alt="Paypal">
+                <img src="assets/styles/images/apple_pay.webp" alt="Apple Pay">
             </div>
         </div>
     </footer>

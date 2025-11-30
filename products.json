@@ -1,103 +1,226 @@
 [
   {
     "id": 1,
-    "title": "Callaway Paradym Driver",
-    "price": 599.99,
-    "oldPrice": 699.99,
+    "title": "Taylormade Stealth",
+    "price": 379.99,
+    "oldPrice": 399.99,
     "rating": 5,
-    "image": "Assets/styles/Images/product-1.webp",
+    "image": "assets/styles/images/products/golf_clubs/club1_1.avif",
     "category": "clubs",
     "badges": ["hot", "sale"],
-    "description": "The Callaway Paradym Driver features a 360° Carbon Chassis to promote unprecedented weight redistribution for maximized distance. Built for golfers of all skill levels seeking a high launch and low spin.",
+    "description": "Набір залізних ключок Taylormade Stealth 6-PW KBS Max 65 Senior Flex Graphite Shafts 6 Iron — це модель Stealth HD, яка є трохи масивнішою та більш толерантною.",
     "images": [
-        "Assets/styles/Images/product-1.webp",
-        "Assets/styles/Images/product-1.webp",
-        "Assets/styles/Images/product-1.webp"
+        "assets/styles/images/products/golf_clubs/club1_1.avif",
+        "assets/styles/images/products/golf_clubs/club1_2.avif",
+        "assets/styles/images/products/golf_clubs/club1_3.avif",
+        "assets/styles/images/products/golf_clubs/club1_4.avif"
     ]
   },
   {
     "id": 2,
-    "title": "TaylorMade Stealth 2",
-    "price": 499.00,
+    "title": "Mizuno T20 Driver",
+    "price": 129.99,
     "rating": 4,
-    "image": "Assets/styles/Images/product-2.webp",
+    "image": "assets/styles/images/products/golf_clubs/club2_1.avif",
     "category": "clubs",
     "badges": ["new"],
-    "description": "TaylorMade Stealth 2 driver delivers faster ball speeds with a new 60X Carbon Twist Face. Optimized for forgiveness and stability.",
+    "description": "Набір веджів Mizuno T20 Blue 56 і 60 Dynamic Gold Stiff Flex *Нова ручка CPx*",
     "images": [
-        "Assets/styles/Images/product-2.webp",
-        "Assets/styles/Images/product-2.webp",
-        "Assets/styles/Images/product-2.webp"
+          "assets/styles/images/products/golf_clubs/club2_1.avif",
+          "assets/styles/images/products/golf_clubs/club2_2.avif",
+          "assets/styles/images/products/golf_clubs/club2_3.avif",
+          "assets/styles/images/products/golf_clubs/club2_4.avif"
     ]
   },
   {
     "id": 3,
-    "title": "Titleist Pro V1 Balls",
-    "price": 54.99,
+    "title": "Ping I3 Blade",
+    "price": 140.63,
     "rating": 5,
-    "image": "Assets/styles/Images/product-3.webp",
-    "category": "balls",
-    "description": "The #1 ball in golf. Titleist Pro V1 offers total performance and features longer distance, very low long game spin, penetrating flight, even more Drop-and-Stop greenside control and softer feel.",
+    "image": "assets/styles/images/products/golf_clubs/club3_1.avif",
+    "category": "clubs",
+    "description": "Залізні ключки Ping i3 blade, 3-PW (8 залізних ключок), жорсткі гнучкі сталеві вали Ping Z-Z65",
     "images": [
-        "Assets/styles/Images/product-3.webp",
-        "Assets/styles/Images/product-3.webp",
-        "Assets/styles/Images/product-3.webp"
-    ]
+            "assets/styles/images/products/golf_clubs/club3_1.avif",
+            "assets/styles/images/products/golf_clubs/club3_2.avif",
+            "assets/styles/images/products/golf_clubs/club3_3.avif",
+            "assets/styles/images/products/golf_clubs/club3_4.avif"
+      ]
   },
   {
     "id": 4,
-    "title": "Nike Air Zoom Victory",
+    "title": "Taylormade Sim Titanium",
     "price": 179.99,
     "rating": 4,
-    "image": "Assets/styles/Images/product-4.webp",
-    "category": "footwear",
-    "description": "The Nike Air Zoom Victory Tour 3 offers robust comfort and energy return for 18 holes. Features a new championship spike design for exceptional traction.",
+    "image": "assets/styles/images/products/golf_clubs/club4_1.avif",
+    "category": "clubs",
+    "description": "Taylormade Sim Titanium 3 Wood 15 градусів Evenflow 60 г жорсткий флекс *VGC*",
     "images": [
-        "Assets/styles/Images/product-4.webp",
-        "Assets/styles/Images/product-4.webp",
-        "Assets/styles/Images/product-4.webp"
-    ]
+            "assets/styles/images/products/golf_clubs/club4_1.avif",
+            "assets/styles/images/products/golf_clubs/club4_2.avif",
+            "assets/styles/images/products/golf_clubs/club4_3.avif",
+            "assets/styles/images/products/golf_clubs/club4_4.avif"
+      ]
   },
   {
     "id": 5,
-    "title": "FootJoy Glove",
-    "price": 24.99,
+    "title": "Callaway Chrome Tour X Triple Track",
+    "price": 122.63,
     "rating": 5,
-    "image": "Assets/styles/Images/product-glove-2.webp",
-    "category": "accessories",
-    "description": "Experience the ultimate in soft feel and grip with the FootJoy StaSof Golf Glove. Crafted from Taction3 Advanced Performance Leather.",
+    "image": "assets/styles/images/products/golf_balls/balls1_1.avif",
+    "category": "balls",
+    "description": "Гольф-м'ячі Chrome Tour X Triple Track від Callaway розроблені для досягнення максимальної дальності та точності завдяки серцевині з високим обертанням та аеродинамічному дизайну.",
     "images": [
-        "Assets/styles/Images/product-glove-2.webp",
-        "Assets/styles/Images/product-glove-2.webp",
-        "Assets/styles/Images/product-glove-2.webp"
-    ]
+            "assets/styles/images/products/golf_balls/balls1_1.avif",
+            "assets/styles/images/products/golf_balls/balls1_2.avif"
+
+      ]
   },
   {
     "id": 6,
-    "title": "Puma Golf Polo",
-    "price": 45.00,
+    "title": "Titleist Prov1 - Mint Grade",
+    "price": 31.50,
     "rating": 4,
-    "image": "Assets/styles/Images/product-shirt.webp",
-    "category": "clothing",
-    "description": "Stay cool and comfortable on the course with the Puma Golf Polo. Made with moisture-wicking fabric and a performance fit.",
+    "image": "assets/styles/images/products/golf_balls/balls2.avif",
+    "category": "balls",
+    "description": "Вживані м'ячі для гольфу, знайдені на курсі. Ці м'ячі для гольфу Titleist Pro V1 мають найвищий рейтинг якості, що означає, що вони знаходяться у відмінному стані з мінімальними ознаками зносу.",
     "images": [
-        "Assets/styles/Images/product-shirt.webp",
-        "Assets/styles/Images/product-shirt.webp",
-        "Assets/styles/Images/product-shirt.webp"
-    ]
+            "assets/styles/images/products/golf_balls/balls2.avif"
+      ]
   },
   {
     "id": 7,
-    "title": "Cobra Aerojet Iron",
-    "price": 129.00,
-    "rating": 5,
-    "image": "Assets/styles/Images/cat-clubs.webp",
-    "category": "clubs",
-    "description": "Cobra Aerojet Irons are designed for distance and forgiveness. Featuring PWR-BRIDGE weighting and PWRSHELL face design.",
+    "title": "Taylormade Tour Response Stripe (3 pack)",
+    "price": 101.25,
+    "rating": 4,
+    "image": "assets/styles/images/products/golf_balls/balls3_1.avif",
+    "category": "balls",
+    "description": "Новинка. TaylorMade Tour Response Stripe. Колір: рожевий. Упаковка: 3 штуки.",
     "images": [
-        "Assets/styles/Images/cat-clubs.webp",
-        "Assets/styles/Images/cat-clubs.webp",
-        "Assets/styles/Images/cat-clubs.webp"
-    ]
+            "assets/styles/images/products/golf_balls/balls3_1.avif",
+            "assets/styles/images/products/golf_balls/balls3_2.avif"
+      ]
+  },
+  {
+    "id": 8,
+    "title": "Taylormade Tour Response Stripe (3 pack)",
+    "price": 101.25,
+    "rating": 4,
+    "image": "assets/styles/images/products/golf_balls/balls4_1.avif",
+    "category": "balls",
+    "description": "Новинка. TaylorMade Tour Response Stripe. Кольори: темно-синій, світло-синій, помаранчевий, жовтий.",
+    "images": [
+            "assets/styles/images/products/golf_balls/balls4_1.avif",
+            "assets/styles/images/products/golf_balls/balls4_2.avif"
+      ]
+  },
+  {
+    "id": 9,
+    "title": "Footjoy FootJoy Quantum Shoe White​/​Grey",
+    "price": 129.36,
+    "rating": 4,
+    "image": "assets/styles/images/products/footwear/footwear1_1.avif",
+    "category": "footwear",
+    "description": "FootJoy Quantum Shoe - 57032",
+    "images": [
+            "assets/styles/images/products/footwear/footwear1_1.avif",
+            "assets/styles/images/products/footwear/footwear1_2.avif",
+            "assets/styles/images/products/footwear/footwear1_3.avif",
+            "assets/styles/images/products/footwear/footwear1_4.avif"
+      ]
+  },
+  {
+    "id": 10,
+    "title": "Footjoy FootJoy Quantum Grey",
+    "price": 129.36,
+    "rating": 4,
+    "image": "assets/styles/images/products/footwear/footwear2_1.avif",
+    "category": "footwear",
+    "description": "FootJoy Quantum Shoe - 56982",
+    "images": [
+            "assets/styles/images/products/footwear/footwear2_1.avif",
+            "assets/styles/images/products/footwear/footwear2_2.avif",
+            "assets/styles/images/products/footwear/footwear2_3.avif",
+            "assets/styles/images/products/footwear/footwear2_4.avif"
+      ]
+  },
+  {
+    "id": 11,
+    "title": "Footjoy FootJoy Pro SLX Black",
+    "price": 112.49,
+    "rating": 4,
+    "image": "assets/styles/images/products/footwear/footwear3_1.avif",
+    "category": "footwear",
+    "description": "FootJoy Pro SLX Black - 56913",
+    "images": [
+            "assets/styles/images/products/footwear/footwear3_1.avif",
+            "assets/styles/images/products/footwear/footwear3_2.avif",
+            "assets/styles/images/products/footwear/footwear3_3.avif",
+            "assets/styles/images/products/footwear/footwear3_4.avif"
+      ]
+  },
+  {
+    "id": 12,
+    "title": "Footjoy Stratos 90112k",
+    "price": 78.75,
+    "rating": 4,
+    "image": "assets/styles/images/products/footwear/footwear4_1.avif",
+    "category": "footwear",
+    "description": "Footjoy Stratos 90112k",
+    "images": [
+            "assets/styles/images/products/footwear/footwear4_1.avif",
+            "assets/styles/images/products/footwear/footwear4_2.avif",
+            "assets/styles/images/products/footwear/footwear4_3.avif",
+            "assets/styles/images/products/footwear/footwear4_4.avif"
+      ]
+  },
+  {
+    "id": 13,
+    "title": "Wilson pink Bag",
+    "price": 42.50,
+    "rating": 4,
+    "image": "assets/styles/images/products/accessories/bag1.webp",
+    "category": "accessories",
+    "description": "Ви маєте чудову можливість придбати нову сумку Wilson pink Bag за супер низькою ціною",
+    "images": [
+            "assets/styles/images/products/accessories/bag1.webp"
+      ]
+  },
+  {
+    "id": 14,
+    "title": "PING Hoofer Stand Bag",
+    "price": 263.53,
+    "rating": 4,
+    "image": "assets/styles/images/products/accessories/bag2.webp",
+    "category": "accessories",
+    "description": "Cумка PING Hoofer Stand Bag - це ідеальний вибір для гольфістів, які цінують комфорт та функціональність під час гри.",
+    "images": [
+            "assets/styles/images/products/accessories/bag2.webp"
+      ]
+  },
+  {
+    "id": 15,
+    "title": "TaylorMade pro 8.0 black/blue",
+    "price": 309.55,
+    "rating": 4,
+    "image": "assets/styles/images/products/accessories/bag3_1.webp",
+    "category": "accessories",
+    "description": "Сумка для гольфу TaylorMade pro 8.0 black/blue забезпечує комфорт та зручність під час гри.",
+    "images": [
+            "assets/styles/images/products/accessories/bag3_1.webp",
+            "assets/styles/images/products/accessories/bag3_2.webp"
+      ]
+  },
+  {
+    "id": 16,
+    "title": "Sun Mountain Three 5 Stand Bag",
+    "price": 240.18,
+    "rating": 4,
+    "image": "assets/styles/images/products/accessories/bag4.webp",
+    "category": "accessories",
+    "description": "Сумка для гольфа Sun Mountain Three 5 Stand Bag поєднує в собі легкість, функціональність та стильний дизайн, що робить її ідеальним вибором для гольфістів.",
+    "images": [
+            "assets/styles/images/products/accessories/bag4.webp"
+      ]
   }
 ]

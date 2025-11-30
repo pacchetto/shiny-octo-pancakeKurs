@@ -17,12 +17,13 @@
             <i class="fa-solid fa-arrow-right d-none"></i>
             <i id="btnX" class="fa-solid fa-x move-right btnX-marg"></i>
         </div>
-         <header class="header d-flex">
+        <header class="header d-flex">
             <div class="content-wrap d-flex w-full justify-between">
                 <div class="header-left">
                     <div id="burgerMenu" class="burger-menu">
-                        <i id="openIcon" class="fa-solid fa-bars"></i>
-                        <i id="closeIcon" class="fa-solid fa-xmark d-none"></i>
+                        <span id="openIcon" class="icon-btn menu-icon-bg"></span>
+                        
+                        <span id="closeIcon" class="icon-btn close-icon-bg d-none"></span>
                     </div>
                     <div class="logo">
                         <a href="index.html" class="title-color">3legant.</a>
@@ -33,7 +34,8 @@
                     <ul class="main-menu">
                         <li><a href="index.html" style="font-weight: 600;" data-key="nav_home">Home</a></li>
                         <li class="dropdown">
-                            <a href="shop.html"><span data-key="nav_shop">Shop</span> <i class="fa-solid fa-chevron-down"></i></a>
+                            <a href="shop.html"><span data-key="nav_shop">Shop</span>
+                            <span class="icon-btn chevron-icon-bg" style="width: 12px; height: 12px; margin-left: 5px;"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="shop.html" data-key="nav_all">All Products</a></li>
                                 <li><a href="shop.html?category=clothing" data-key="cat_clothing">T-Shirts</a></li>
@@ -48,7 +50,7 @@
                             <span class="lang-btn" onclick="changeLanguage('uk')">UA</span>
                         </li>
                         <li class="theme-toggle" onclick="toggleTheme()">
-                            <i class="fa-regular fa-moon" id="themeIcon"></i>
+                            <span id="themeIcon" class="icon-btn moon-icon-bg"></span>
                         </li>
                     </ul>
                 </nav>
@@ -71,7 +73,7 @@
                 <span>Contact Us</span>
             </div>
             <h1 class="page-title" data-key="contact_title">We believe in sustainable decor. We’re passionate about life at home.</h1>
-            <p style="color: var(--secondary-text);" data-key="contact_desc">Our features timeless furniture, with natural fabrics, curved lines, plenty of mirrors and classic design.</p>
+            <p style="color: var(--secondary-text); margin:auto 55px;" data-key="contact_desc">Our features timeless furniture, with natural fabrics, curved lines, plenty of mirrors and classic design.</p>
         </div>
 
         <section class="contact-section">
@@ -119,8 +121,8 @@
         
         <section class="map-section">
             <div class="container">
-               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.669658423668!2d106.66488!3d10.75992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f9023a3a85d%3A0x9259bad4a519a6d1!2sHo%20Chi%20Minh%20City%2C%20Vietnam!5e0!3m2!1sen!2s!4v1690000000000!5m2!1sen!2s" 
-                        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.517238424737!2d106.70222667504184!3d10.771640189376885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f41446f12c5%3A0xdb66d46cf811cbd2!2zNDMxMTEgxJAuIEjhuqNpIFRyaeG7gXUsIELhur9uIE5naMOpLCBRdeG6rW4gMSwgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5oLCDQkifRlNGC0L3QsNC8!5e0!3m2!1suk!2sua!4v1764526352834!5m2!1suk!2sua"
+                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </section>
     </section>
@@ -131,27 +133,58 @@
                 <a href="#" class="footer-logo">3legant.</a>
                 <p data-key="footer_desc">More than just a game. It's a lifestyle.</p>
                 <div class="social-icons">
-                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="404.html" aria-label="Instagram"><span class="icon-btn insta-icon-bg"></span></a>
+                    <a href="404.html" aria-label="Facebook"><span class="icon-btn fb-icon-bg"></span></a>
+                    <a href="404.html" aria-label="YouTube"><span class="icon-btn yt-icon-bg"></span></a>
                 </div>
             </div>
+            
             <div class="footer-col links footer-accordion">
-                <h4 class="accordion-toggle">Page <i class="fa-solid fa-chevron-up"></i></h4>
+                <h4 class="accordion-toggle">
+                    <span data-key="footer_page">Page</span>
+                    <span class="icon-btn chevron-icon-bg"></span>
+                </h4>
                 <ul class="accordion-content">
                     <li><a href="index.html" data-key="nav_home">Home</a></li>
                     <li><a href="shop.html" data-key="nav_shop">Shop</a></li>
                     <li><a href="contact.html" data-key="nav_contact">Contact Us</a></li>
                 </ul>
             </div>
+
+            <div class="footer-col links footer-accordion">
+                <h4 class="accordion-toggle">
+                    <span data-key="footer_info">Info</span>
+                    <span class="icon-btn chevron-icon-bg"></span>
+                </h4>
+                <ul class="accordion-content">
+                    <li><a href="404.html">Shipping Policy</a></li>
+                    <li><a href="404.html">Return & Refund</a></li>
+                    <li><a href="404.html">Support</a></li>
+                    <li><a href="404.html">FAQs</a></li>
+                </ul>
+            </div>
+
             <div class="footer-col office">
-                <h4>Office</h4>
+                <h4 data-key="footer_office">Office</h4>
                 <p>43111 Hai Trieu street, District 1, HCMC Vietnam</p>
                 <p>84-756-3237</p>
             </div>
         </div>
+        
         <div class="container footer-bottom">
-            <p>Copyright © 2024 3legant. All rights reserved</p>
+            <p>Copyright &copy; 2024 3legant. All rights reserved</p>
+            <div class="policy-links">
+                <a href="404.html" data-key="policy_privacy">Privacy Policy</a>
+                <a href="404.html" data-key="policy_terms">Terms & Conditions</a>
+            </div>
+            <div class="payment-icons">
+                <img src="assets/styles/images/visa.webp" alt="Visa">
+                <img src="assets/styles/images/american_express.webp" alt="American Express">
+                <img src="assets/styles/images/mastercard.webp" alt="Mastercard">
+                <img src="assets/styles/images/stripe.webp" alt="Stripe">
+                <img src="assets/styles/images/paypal.webp" alt="Paypal">
+                <img src="assets/styles/images/apple_pay.webp" alt="Apple Pay">
+            </div>
         </div>
     </footer>
 

@@ -2,19 +2,19 @@
     {
       "id": 1,
       "title": "Air Jordan x Travis Scott Event",
-      "image": "Assets/styles/Images/article-1.webp",
+      "image": "Assets/styles/images/article-1.webp",
       "link": "blog-post.html"
     },
     {
       "id": 2,
       "title": "The timeless classics on the green",
-      "image": "Assets/styles/Images/article-2.webp",
+      "image": "Assets/styles/images/article-2.webp",
       "link": "blog-post.html"
     },
     {
       "id": 3,
       "title": "The 2023 Ryder Cup",
-      "image": "Assets/styles/Images/article-3.webp",
+      "image": "Assets/styles/images/article-3.webp",
       "link": "blog-post.html"
     }
   ]
