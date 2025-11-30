@@ -78,6 +78,11 @@ html, body {
     filter: invert(1);
 }
 
+[data-theme="dark"] .product-options select option {
+    color: #FEFEFE;
+    background-color: #232627;
+}
+
 .theme-toggle {
     cursor: pointer;
     font-size: 1.2rem;
@@ -388,7 +393,35 @@ img { max-width: 100%; display: block; }
 .newsletter-form .fa-envelope { color: var(--secondary-text); }
 .newsletter-form input { background: transparent; border: none; color: #FFFFFF; flex-grow: 1; padding: 0 12px; outline: none; font-size: 1rem; }
 .newsletter-form button { background: transparent; border: none; color: #FFFFFF; font-size: 1rem; cursor: pointer; font-weight: 600; }
+.newletter-image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+}
 
+.newletter-img-element {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.black-overlay {
+    position: absolute;  /* Накладається поверх */
+    top: 0;
+    left: 0;
+    width: 100%;         /* Розтягуємо на всю ширину батька */
+    height: 100%;        /* Розтягуємо на всю висоту батька */
+    
+    /* Чорний колір (0,0,0) з прозорістю 0.5 (50%) */
+    background-color: rgba(0, 0, 0, 0.5); 
+    
+    z-index: 10;         /* Щоб точно був зверху */
+}
 /* INSTAGRAM */
 .instagram-posts { align-items: center; text-align: center; }
 .newsfeed-tag { font-weight: bold; color: var(--secondary-text); }
@@ -651,6 +684,7 @@ img { max-width: 100%; display: block; }
 .product-price-large .old-price { font-size: 0.7em; color: var(--secondary-text); text-decoration: line-through; margin-left: 10px; font-weight: 400; }
 .product-description { line-height: 1.6; color: var(--text-color); margin-bottom: 25px; }
 .product-divider { border: none; border-top: 1px solid var(--border-color); margin: 30px 0; }
+.product-options select option {color: #141718;background-color: #FFFFFF;}
 .product-options .option-group { display: flex; align-items: center; gap: 15px; margin-bottom: 30px; }
 .product-options .option-group label { font-weight: 600; color: var(--title-color); min-width: 60px; }
 .product-options .option-group select { padding: 10px 15px; border: 1px solid var(--border-color); border-radius: 5px; background-color: var(--background-color); color: var(--text-color); flex-grow: 1; max-width: 200px; font-family: 'Montserrat', sans-serif; }
