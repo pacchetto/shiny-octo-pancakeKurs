@@ -741,3 +741,15 @@ img { max-width: 100%; display: block; }
     .product-price-large { font-size: 1.2em; }
     .product-gallery-wrapper .thumbnails img { width: 50px; height: 50px; }
 }
+.badge.sale {
+    background-color: var(--main-btn-color);
+    color: #141718 !important; /* Чорний колір замість білого */
+    font-weight: 700;
+}
+
+/* 2. Секція Offer (Темна): Робимо сірий текст світлішим */
+.offer-section .offer-description, 
+.offer-section .timer-label {
+    color: #E8ECEF !important; /* Світло-сірий (майже білий) */
+    opacity: 1; /* Прибираємо прозорість, якщо була */
+}
